@@ -1,0 +1,273 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>101</key>
+	<dict>
+		<key>id</key>
+		<integer>101</integer>
+		<key>continentSub</key>
+		<string>北アメリカ</string>
+		<key>country</key>
+		<string>カナダ</string>
+		<key>hotelName</key>
+		<string>Sweetheart B &amp; B 1号館</string>
+		<key>image</key>
+		<integer>5</integer>
+		<key>address</key>
+		<string>72 Henry St., Toronto, Ontario, Canada M5T 1X2</string>
+		<key>latitude</key>
+		<string>43.658448</string>
+		<key>longitude</key>
+		<string>-79.394717</string>
+		<key>accommodation</key>
+		<string>シングルルーム 55ドル
+
+スモールシングルルーム 40ドル
+
+ベースメントシングルルーム 45ドル
+
+ダブルベッドルーム 60ドル（1名様）/　70ドル（2名様）
+
+ツインルーム 60ドル（1名様）/　75ドル（2名様）
+
+ベースメントスイート 75ドル（1名様）　/　95ドル（2名様）120ドル（3名様）
+
+ドミトリールーム 35ドル（1名様）</string>
+		<key>wifi</key>
+		<string>あり</string>
+		<key>pickup</key>
+		<string>有料</string>
+		<key>equipment</key>
+		<string>シャワー、トイレ、キッチン、ランドリー、無料電話、無料駐車場など</string>
+		<key>reservation</key>
+		<string>メール</string>
+		<key>reservation_URL</key>
+		<string>
+http://www.sweetheartbb.com/toronto/contact/index.html</string>
+		<key>tel</key>
+		<string>日本語：416-597-9897
+英語：416-910-0799</string>
+		<key>email</key>
+		<string>info_sweetheart@hotmail.com</string>
+		<key>url</key>
+		<string>https://ameblo.jp/sand-hawaii/</string>
+		<key>comment</key>
+		<string>フレンドリーな日本人オーナーと、スタッフが、心のこもったサービスを提供させていただきます。ペットとご一緒にご宿泊できるお部屋もございます。</string>
+		<key>red</key>
+		<integer>248</integer>
+		<key>green</key>
+		<integer>49</integer>
+		<key>blue</key>
+		<integer>98</integer>
+	</dict>
+	<key>103</key>
+	<dict>
+		<key>id</key>
+		<integer>103</integer>
+		<key>continentSub</key>
+		<string>北アメリカ</string>
+		<key>country</key>
+		<string>カナダ</string>
+		<key>hotelName</key>
+		<string>メリーフィールドハウスB&amp;B</string>
+		<key>image</key>
+		<integer>5</integer>
+		<key>address</key>
+		<string>235 Government St., Victoria, B.C., Canada, V8V 2K8</string>
+		<key>latitude</key>
+		<string>48.414553</string>
+		<key>longitude</key>
+		<string>-123.369362</string>
+		<key>accommodation</key>
+		<string>Room1
+C $105.00
+（10月〜5月）
+C $155.00
+
+Room2
+C $105.00〜
+（10月〜5月）
+C $155.00〜
+※Room2は、人数によって変更あり</string>
+		<key>wifi</key>
+		<string>あり</string>
+		<key>pickup</key>
+		<string></string>
+		<key>equipment</key>
+		<string>バス、トイレ、キッチン、ランドリーなど</string>
+		<key>reservation</key>
+		<string>HP</string>
+		<key>reservation_URL</key>
+		<string>http://marifieldhouse.com/japanese.html</string>
+		<key>tel</key>
+		<string>フリーダイヤル：1-866-235-3820
+日本語専用：250-383-3820</string>
+		<key>email</key>
+		<string>toshiedavid@marifieldhouse.com </string>
+		<key>url</key>
+		<string>http://marifieldhouse.com/japanese.html</string>
+		<key>comment</key>
+		<string>カナダセレクト四つ星認定。ビクトリアダウンタウンへ徒歩5分。朝食はボリュームの手作り日替わりメニュー！</string>
+		<key>red</key>
+		<integer>248</integer>
+		<key>green</key>
+		<integer>49</integer>
+		<key>blue</key>
+		<integer>98</integer>
+	</dict>
+	<key>201</key>
+	<dict>
+		<key>id</key>
+		<integer>201</integer>
+		<key>continentSub</key>
+		<string>中南米</string>
+		<key>country</key>
+		<string>ジャマイカ</string>
+		<key>hotelName</key>
+		<string>民宿ラブリシュ</string>
+		<key>image</key>
+		<integer>5</integer>
+		<key>address</key>
+		<string>10 Hillview Ave,Kingston 10,Jamaica W.I</string>
+		<key>latitude</key>
+		<string>18.01496</string>
+		<key>longitude</key>
+		<string>-76.799609</string>
+		<key>accommodation</key>
+		<string>個室１泊
+１人部屋 US$30
+２人利用の場合 US$40
+３人利用の場合 US$50
+
+デラックス個室１泊
+１人部屋 US$40 
+２人利用の場合 US$50
+３人利用の場合 US$60
+
+ドミトリー１泊（男6人、女4人部屋）
+１人部屋 US$40 
+２人利用の場合 US$50
+３人利用の場合 US$60</string>
+		<key>wifi</key>
+		<string>あり</string>
+		<key>pickup</key>
+		<string></string>
+		<key>equipment</key>
+		<string>シャワー、トイレ、キッチン、ランドリーなど</string>
+		<key>reservation</key>
+		<string>メール</string>
+		<key>reservation_URL</key>
+		<string>http://www.sisterchin.com/rastalabrish3.html</string>
+		<key>tel</key>
+		<string>876-382-5150</string>
+		<key>email</key>
+		<string>sisterchin2001@hotmail.com</string>
+		<key>url</key>
+		<string>http://www.sisterchin.com/rastalabrish3.html</string>
+		<key>comment</key>
+		<string>民宿ラブリシュはキングストンの繁華街ハーフウェイトゥリーにありスーパーマーケット、レストランなど全て徒歩５分以内にあり大変便利で、来たその日からジャマイカに住んでいる感覚でステイしていただけます。</string>
+		<key>red</key>
+		<integer>246</integer>
+		<key>green</key>
+		<integer>49</integer>
+		<key>blue</key>
+		<integer>241</integer>
+	</dict>
+	<key>202</key>
+	<dict>
+		<key>id</key>
+		<integer>202</integer>
+		<key>continentSub</key>
+		<string>中南米</string>
+		<key>country</key>
+		<string>ジャマイカ</string>
+		<key>hotelName</key>
+		<string>アイシャ★ハウス</string>
+		<key>image</key>
+		<integer>5</integer>
+		<key>address</key>
+		<string>8 Goodwood Terrace,Kingston10 Jamaica W.I.</string>
+		<key>latitude</key>
+		<string>18.028577</string>
+		<key>longitude</key>
+		<string>-76.798554</string>
+		<key>accommodation</key>
+		<string>バスルーム・キッチン共同／1泊　US$30
+バスルーム・キッチン付／1泊 　US$40</string>
+		<key>wifi</key>
+		<string>あり</string>
+		<key>pickup</key>
+		<string></string>
+		<key>equipment</key>
+		<string>シャワー、トイレ、キッチン、ランドリーなど</string>
+		<key>reservation</key>
+		<string>メール</string>
+		<key>reservation_URL</key>
+		<string>yumi@colis.com</string>
+		<key>tel</key>
+		<string>(876)844-8928　</string>
+		<key>email</key>
+		<string>http://www.aishahouse.com.jm/yoyaku.html</string>
+		<key>url</key>
+		<string>http://www.aishahouse.com.jm</string>
+		<key>comment</key>
+		<string>キングストンの中心街、ハーフ・ウェイ・トゥリー繁華街まで１km。観光、ショッピング、スタジオまでのアクセスも便利。</string>
+		<key>red</key>
+		<integer>246</integer>
+		<key>green</key>
+		<integer>49</integer>
+		<key>blue</key>
+		<integer>241</integer>
+	</dict>
+	<key>1314</key>
+	<dict>
+		<key>id</key>
+		<integer>1314</integer>
+		<key>continentSub</key>
+		<string>オーストラリア・オセアニア</string>
+		<key>country</key>
+		<string>ニュージーランド</string>
+		<key>hotelName</key>
+		<string>Sasanoki</string>
+		<key>image</key>
+		<integer>5</integer>
+		<key>address</key>
+		<string>22 Penrith Park Drive, Wanaka, New Zealand </string>
+		<key>latitude</key>
+		<string>-44.663039</string>
+		<key>longitude</key>
+		<string>169.126232</string>
+		<key>accommodation</key>
+		<string>ツイン利用        
+$190-(一泊目）　
+
+シングル利用        
+$160-（一泊目）　</string>
+		<key>wifi</key>
+		<string></string>
+		<key>pickup</key>
+		<string>あり</string>
+		<key>equipment</key>
+		<string>バス、トイレ、キッチン、ランドリーなど</string>
+		<key>reservation</key>
+		<string>HP</string>
+		<key>reservation_URL</key>
+		<string>https://sasanoki.co.nz/bookingform.html</string>
+		<key>tel</key>
+		<string>64-3-443-1232</string>
+		<key>email</key>
+		<string></string>
+		<key>url</key>
+		<string>http://sasanoki.co.nz/</string>
+		<key>comment</key>
+		<string>ニュージーランドご旅行の途中に、 ワナカの美しい自然の中で、日本の味、 日本式のお風呂でゆっくりしてみませんか？ 少しでも多くの日本の方にワナカの魅力を感じてもらえるよう、私達家族がおもてなしをさせて頂きます。</string>
+		<key>red</key>
+		<integer>28</integer>
+		<key>green</key>
+		<integer>190</integer>
+		<key>blue</key>
+		<integer>34</integer>
+	</dict>
+</dict>
+</plist>

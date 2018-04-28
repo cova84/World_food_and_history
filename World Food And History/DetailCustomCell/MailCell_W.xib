@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="gfJ-ws-h40" customClass="mailCell_W" customModule="WorldFoodAndHistory" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="288" height="30"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="gfJ-ws-h40" id="iAO-54-Did">
+                <rect key="frame" x="0.0" y="0.0" width="288" height="29.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Urq-Ai-MaD">
+                        <rect key="frame" x="0.0" y="0.0" width="288" height="29"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </view>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="fill" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="al5-Xp-fB9">
+                        <rect key="frame" x="22" y="0.0" width="244" height="30"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                        <state key="normal" title="Button"/>
+                        <connections>
+                            <action selector="button:" destination="gfJ-ws-h40" eventType="touchUpInside" id="Y1E-7C-y8k"/>
+                        </connections>
+                    </button>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="trailing" secondItem="al5-Xp-fB9" secondAttribute="trailing" constant="22" id="8ua-r1-VIR"/>
+                    <constraint firstItem="Urq-Ai-MaD" firstAttribute="top" secondItem="iAO-54-Did" secondAttribute="top" id="KnW-PD-iLK"/>
+                    <constraint firstAttribute="trailing" secondItem="Urq-Ai-MaD" secondAttribute="trailing" id="MnX-sW-1Xa"/>
+                    <constraint firstAttribute="bottom" secondItem="al5-Xp-fB9" secondAttribute="bottom" constant="-0.5" id="PuS-us-ozq"/>
+                    <constraint firstItem="al5-Xp-fB9" firstAttribute="top" secondItem="iAO-54-Did" secondAttribute="top" id="eJn-cv-WTF"/>
+                    <constraint firstAttribute="bottom" secondItem="Urq-Ai-MaD" secondAttribute="bottom" constant="0.5" id="hUr-r5-wMj"/>
+                    <constraint firstItem="al5-Xp-fB9" firstAttribute="leading" secondItem="iAO-54-Did" secondAttribute="leading" constant="22" id="tfe-AB-xIJ"/>
+                    <constraint firstItem="Urq-Ai-MaD" firstAttribute="leading" secondItem="iAO-54-Did" secondAttribute="leading" id="txs-fU-AYi"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="background" destination="Urq-Ai-MaD" id="Aj2-La-0NK"/>
+                <outlet property="buttonTitle" destination="al5-Xp-fB9" id="fSg-Xy-6QL"/>
+            </connections>
+            <point key="canvasLocation" x="163" y="198"/>
+        </tableViewCell>
+    </objects>
+</document>

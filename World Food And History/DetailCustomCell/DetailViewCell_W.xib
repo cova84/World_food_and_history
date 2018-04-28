@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="gfJ-ws-h40" customClass="detailViewCell_W" customModule="WorldFoodAndHistory" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="288" height="30"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="gfJ-ws-h40" id="iAO-54-Did">
+                <rect key="frame" x="0.0" y="0.0" width="288" height="29.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Urq-Ai-MaD">
+                        <rect key="frame" x="0.0" y="0.0" width="288" height="29"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </view>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fkU-uZ-YG2">
+                        <rect key="frame" x="22" y="4" width="244" height="21"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="Urq-Ai-MaD" firstAttribute="top" secondItem="iAO-54-Did" secondAttribute="top" id="KnW-PD-iLK"/>
+                    <constraint firstAttribute="trailing" secondItem="Urq-Ai-MaD" secondAttribute="trailing" id="MnX-sW-1Xa"/>
+                    <constraint firstItem="fkU-uZ-YG2" firstAttribute="leading" secondItem="iAO-54-Did" secondAttribute="leading" constant="22" id="Tie-1J-2n1"/>
+                    <constraint firstItem="fkU-uZ-YG2" firstAttribute="top" secondItem="iAO-54-Did" secondAttribute="top" constant="4" id="Ved-n6-SmM"/>
+                    <constraint firstAttribute="trailing" secondItem="fkU-uZ-YG2" secondAttribute="trailing" constant="22" id="giN-Ha-nIL"/>
+                    <constraint firstAttribute="bottom" secondItem="Urq-Ai-MaD" secondAttribute="bottom" constant="0.5" id="hUr-r5-wMj"/>
+                    <constraint firstAttribute="bottom" secondItem="fkU-uZ-YG2" secondAttribute="bottom" constant="4.5" id="m7v-vG-M0d"/>
+                    <constraint firstItem="Urq-Ai-MaD" firstAttribute="leading" secondItem="iAO-54-Did" secondAttribute="leading" id="txs-fU-AYi"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="background" destination="Urq-Ai-MaD" id="yp3-Uf-kDO"/>
+                <outlet property="varticalLabel" destination="fkU-uZ-YG2" id="r2d-re-YW6"/>
+            </connections>
+            <point key="canvasLocation" x="163" y="198"/>
+        </tableViewCell>
+    </objects>
+</document>
