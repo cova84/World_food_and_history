@@ -58,33 +58,51 @@ class DetailView:UIViewController, UITableViewDataSource, UITableViewDelegate{
     @IBOutlet weak var saveFavoritesView: UIView!
     @IBOutlet weak var saveFavoritesViewHeight: NSLayoutConstraint!
     @IBAction func saveFavorites(_ sender: UIButton) {
-        print("お気に入りに保存されました")
 
         //AppDelegateを使う用意をしておく（インスタンス化）
         let appDelegate:AppDelegate = UIApplication.shared.delegate as! AppDelegate
         //エンティティを操作する為のオブジェクト作成
         let viewContext = appDelegate.persistentContainer.viewContext
         //Favoriteエンティティオブジェクトを作成
-        let Favorite = NSEntityDescription.entity(forEntityName: "Favorite", in: viewContext)
+        let favoriteEntity = NSEntityDescription.entity(forEntityName: "Favorite", in: viewContext)
         
-        //Favoriteエンティティにレコード（行）を挿入する為のオブジェクトを作成
-        let newRecord = NSManagedObject(entity: Favorite!, insertInto: viewContext)
+        
+        let query:NSFetchRequest<Favorite> = Favorite.fetchRequest()
         
         //値のセット
-        let hotel = getKeyDic["hotelName"] as! String
+        let cuisine = getKeyDic["hotelName"] as! String
         let country = getKeyDic["country"] as! String
         let id = getKeyDic["id"] as! Int
         
-        newRecord.setValue(hotel, forKey: "hotel")  //hotel列に文字列をセット
-        newRecord.setValue(country, forKey: "country")  //country列に文字列をセット
-        newRecord.setValue(id, forKey: "id")  //country列に文字列をセット
-        print("\(hotel)","\(id)","\(country)")
 
-        //レコード（行）の即時保存
-        do{
-            try viewContext.save()
+        //=== すでにお気に入りに入っているか確認 ===
+        let favoritePredicate = NSPredicate(format: "id = %d", id)
+        query.predicate = favoritePredicate
+        
+        do {
+            let fetchResults = try viewContext.fetch(query)
+        
+            if( fetchResults.count == 0 ) {
+                //Favoriteエンティティにレコード（行）を挿入する為のオブジェクトを作成
+                let newRecord = NSManagedObject(entity: favoriteEntity!, insertInto: viewContext)
+                
+                newRecord.setValue(cuisine, forKey: "cuisine")  //hotel列に文字列をセット
+                newRecord.setValue(country, forKey: "country")  //country列に文字列をセット
+                newRecord.setValue(id, forKey: "id")  //country列に文字列をセット
+                print("\(cuisine)","\(id)","\(country)")
+
+                //レコード（行）の即時保存
+                do{
+                    try viewContext.save()
+                    print("お気に入りに保存されました")
+
+                }catch{
+                    //エラーが出た時に行う処理を書いておく場所
+                    print(error, #function)
+                }
+            }
         }catch{
-            //エラーが出た時に行う処理を書いておく場所
+            print(error, #function)
         }
     }
 

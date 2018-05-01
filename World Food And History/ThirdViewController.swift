@@ -20,12 +20,13 @@ class ThirdViewController: UIViewController,UITableViewDelegate,UITableViewDataS
     var getKeyDic = NSDictionary()
     
     //Favorite（内容を）格納する配列TabelViewを準備
-    var contentHotel:[NSDictionary] = []
+    var contentCuisine:[NSDictionary] = []
     var contentCountry:[NSDictionary] = []
     var contentID:[NSDictionary] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
+//        deleteAll()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -37,7 +38,7 @@ class ThirdViewController: UIViewController,UITableViewDelegate,UITableViewDataS
     func read() {
         
         //一旦からにする（初期化）
-        contentHotel = []
+        contentCuisine = []
         //AppDelegateを使う用意をしておく
         let appDelegate:AppDelegate = UIApplication.shared.delegate as! AppDelegate
         //エンティティを操作する為のオブジェクトを作成
@@ -51,21 +52,21 @@ class ThirdViewController: UIViewController,UITableViewDelegate,UITableViewDataS
             
             //きちんと保存できてるか、１行ずつ表示（デバックエリア）
             for result: AnyObject in fetchResults{
-                let hotel :String? = result.value(forKey:"hotel") as? String
+                let cuisine :String? = result.value(forKey:"cuisine") as? String
                 let country :String? = result.value(forKey:"country") as? String
                 let id :Int16? = result.value(forKey:"id") as? Int16
                 
-                let dic = ["id":id!,"hotel":hotel!,"country":country!] as [String : Any]
-                print("hotel:\(hotel) hotel:\(hotel!) country:\(country!) ")
-                contentHotel.append(dic as NSDictionary)
+                let dic = ["id":id!,"cuisine":cuisine!,"country":country!] as [String : Any]
+                print("cuisine:\(cuisine!) country:\(country!) ")
+                contentCuisine.append(dic as NSDictionary)
 
             }
         }catch{
         }
-        //登録型一つも無かったら表示するようのダミー定義
-        if contentHotel.count == 0 {
-            let dummy = ["id":0,"hotel":"お気に入りの登録がありません","country":""] as [String : Any]
-            contentHotel.append(dummy as NSDictionary)
+        //登録が一つも無かったら表示するようのダミー定義
+        if contentCuisine.count == 0 {
+            let dummy = ["id":0,"cuisine":"お気に入りの登録がありません","country":""] as [String : Any]
+            contentCuisine.append(dummy as NSDictionary)
         }
         favoriteTableView.reloadData()
     }
@@ -73,6 +74,10 @@ class ThirdViewController: UIViewController,UITableViewDelegate,UITableViewDataS
     
     @IBAction func tapAllDelete(_ sender: UIButton) {
         
+        deleteAll()
+    }
+
+    func deleteAll(){
         //部品となるアラート作成
         let alert = UIAlertController(
             title: "All Delete", message: "全ての登録が削除されます。よろしいですか？", preferredStyle: .alert)
@@ -91,14 +96,14 @@ class ThirdViewController: UIViewController,UITableViewDelegate,UITableViewDataS
         //alert.addAction(UIAlertAction(title: "OPPAI", style: .default, handler: nil))
         alert.addAction(UIAlertAction(title: "OK", style: .default, handler: {
             action in print("OKが押されました。")
-        
+            
             //AppDelegate使う準備をする（インスタンス化）
             let appDelegate:AppDelegate = UIApplication.shared.delegate as! AppDelegate
             //エンティティを操作する為のオブジェクトを作成
             let viewContext = appDelegate.persistentContainer.viewContext
             //どのエンティティからデータを取得するか設定（Favoriteエンティティ）
             let query:NSFetchRequest<Favorite> = Favorite.fetchRequest()
-    
+            
             //削除したデータを取得（今回は全て取得）
             do{
                 //削除するデータを取得(今回は全て)
@@ -116,14 +121,13 @@ class ThirdViewController: UIViewController,UITableViewDelegate,UITableViewDataS
             //再読み込み
             self.read()
         }))
+        
     }
-
-    
     
     //TabelView用処理
     //行数の決定
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return contentHotel.count
+        return contentCuisine.count
     }
     
     
@@ -133,9 +137,9 @@ class ThirdViewController: UIViewController,UITableViewDelegate,UITableViewDataS
         //文字列を表示するセルの取得（セルの再利用）
         let cell = tableView.dequeueReusableCell(withIdentifier: "FavoriteCell", for: indexPath) as! customCellTableViewCell
         //表示したい文字の設定（セルの中には文字、画像も入る）
-        var dic = contentHotel[indexPath.row] 
+        var dic = contentCuisine[indexPath.row]
         
-        cell.hotelLabel.text = dic["hotel"] as! String
+        cell.hotelLabel.text = dic["cuisine"] as! String
         //文字を設定したセルを返す
         return cell
     }
@@ -145,7 +149,7 @@ class ThirdViewController: UIViewController,UITableViewDelegate,UITableViewDataS
     //セルがタップされた時のイベント
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         //okayumemo Favoriteデータから読出ししたデータを取り出し
-        let hotelDic = contentHotel[indexPath.row]
+        let hotelDic = contentCuisine[indexPath.row]
         let id = hotelDic["id"] as! Int16
         let key:String = "\(id)"
         

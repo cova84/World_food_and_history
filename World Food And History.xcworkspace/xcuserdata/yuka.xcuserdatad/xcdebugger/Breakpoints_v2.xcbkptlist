@@ -9,13 +9,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "World Food And History/FirstViewController.swift"
-            timestampString = "546625742.888953"
+            filePath = "World Food And History/DetailView.swift"
+            timestampString = "546858175.615455"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "240"
-            endingLineNumber = "240"
-            landmarkName = "tableView(_:cellForRowAt:)"
+            startingLineNumber = "85"
+            endingLineNumber = "85"
+            landmarkName = "saveFavorites(_:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
