@@ -21,8 +21,6 @@ class ThirdViewController: UIViewController,UITableViewDelegate,UITableViewDataS
     
     //Favorite（内容を）格納する配列TabelViewを準備
     var contentCuisine:[NSDictionary] = []
-    var contentCountry:[NSDictionary] = []
-    var contentID:[NSDictionary] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,11 +29,11 @@ class ThirdViewController: UIViewController,UITableViewDelegate,UITableViewDataS
     
     override func viewWillAppear(_ animated: Bool) {
         //CoreDataを読み込む処理
-        read()
+        readCoreDataAll()
     }
     
     //すでに存在するデータの読み込み処理
-    func read() {
+    func readCoreDataAll() {
         
         //一旦からにする（初期化）
         contentCuisine = []
@@ -119,7 +117,7 @@ class ThirdViewController: UIViewController,UITableViewDelegate,UITableViewDataS
             }catch{
             }
             //再読み込み
-            self.read()
+            self.readCoreDataAll()
         }))
         
     }
@@ -137,7 +135,7 @@ class ThirdViewController: UIViewController,UITableViewDelegate,UITableViewDataS
         //文字列を表示するセルの取得（セルの再利用）
         let cell = tableView.dequeueReusableCell(withIdentifier: "FavoriteCell", for: indexPath) as! customCellTableViewCell
         //表示したい文字の設定（セルの中には文字、画像も入る）
-        var dic = contentCuisine[indexPath.row]
+        let dic = contentCuisine[indexPath.row]
         
         cell.hotelLabel.text = dic["cuisine"] as! String
         //文字を設定したセルを返す
@@ -195,11 +193,56 @@ class ThirdViewController: UIViewController,UITableViewDelegate,UITableViewDataS
         
         return dic![key] as? NSDictionary
     }
+
+    //ボタンの装飾付き　ボタンを押した時の処理
+    func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
+        print(#function)
+        let deleteButton: UITableViewRowAction = UITableViewRowAction(style: .normal, title: "Delete") { (action, index) -> Void in
+            self.favoriteTableView.deleteRows(at: [indexPath], with: .fade)
+            self.deleteOne(id: self.contentCuisine[indexPath.row]["id"] as! Int)
+        }
+        deleteButton.backgroundColor = UIColor.blue
+        
+        return [deleteButton]
+    }
     
+    func deleteOne(id: Int){
+        print(#function,id)
+        //AppDelegate使う準備をする（インスタンス化）
+            let appDelegate:AppDelegate = UIApplication.shared.delegate as! AppDelegate
+            //エンティティを操作する為のオブジェクトを作成
+            let viewContext = appDelegate.persistentContainer.viewContext
+            //どのエンティティからデータを取得するか設定（Favoriteエンティティ）
+            let query:NSFetchRequest<Favorite> = Favorite.fetchRequest()
+        
+            let favoritePredicate = NSPredicate(format: "id = %d", id)
+            query.predicate = favoritePredicate
+
+            //削除したデータを取得（今回は全て取得）
+            do{
+                //削除するデータを取得(今回は全て)
+                let fetchResults = try viewContext.fetch(query)
+                    //削除処理を行うために型変換
+                let record = fetchResults[0] as! NSManagedObject
+                viewContext.delete(record)
+                //削除した状態を保存
+                try viewContext.save()
+                
+            }catch{
+                print(error)
+            }
+            //再読み込み
+            self.readCoreDataAll()
+        
+    }
+
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+        print(#function)
+        
     }
+    
     
 }
 

@@ -326,8 +326,6 @@ class FirstViewController: UIViewController,UITableViewDelegate,UITableViewDataS
             print(viewData[indexPath.row].no)
             
             //indexPathから読出ししたデータを取り出し
-            let hotelDic = contentHotel[indexPath.row]
-            //            let id = hotelDic["id"] as! Int16
             let id = viewData[indexPath.row].no
             
             let key:String = "\(id)"
@@ -516,7 +514,7 @@ class FirstViewController: UIViewController,UITableViewDelegate,UITableViewDataS
         
         
         
-        country.append((title: "アメリカ",no:    110    , details: [    111,    112,    113,                                                                        ], extended: false,category:2))
+        country.append((title: "アメリカ",no:    110    , details: [     ], extended: false,category:2))
         country.append((title: "カナダ",no:    100    , details: [    101,    102,    103,    105,    106,    107,    108,                                                    ], extended: false,category:2))
         country.append((title: "ジャマイカ",no:    200    , details: [    201,    202,                                                                            ], extended: false,category:2))
         country.append((title: "グアテマラ",no:    210    , details: [    211,    212,    213,    214,                                                                    ], extended: false,category:2))
@@ -546,7 +544,7 @@ class FirstViewController: UIViewController,UITableViewDelegate,UITableViewDataS
         country.append((title: "ネパール",no:    900    , details: [    901,    902,                                                                            ], extended: false,category:2))
         country.append((title: "キルギス",no:    1100    , details: [    1101,                                                                                ], extended: false,category:2))
         country.append((title: "オーストラリア",no:    1300    , details: [    1301,                                                                                ], extended: false,category:2))
-        country.append((title: "ニュージーランド",no:    1310    , details: [    1311,    1312,     1314,                                                                    ], extended: false,category:2))
+        country.append((title: "ニュージーランド",no:    1310    , details: [     1314,                                                                    ], extended: false,category:2))
 
         
         //plistの読み込み--------------------------------------------------------
