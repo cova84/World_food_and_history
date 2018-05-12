@@ -12,6 +12,9 @@ import CoreData
 
 class ThirdViewController: UIViewController,UITableViewDelegate,UITableViewDataSource {
 
+    var selectedDic:NSDictionary!
+    var selectedKey:String!
+    
     @IBOutlet weak var favoriteTableView: UITableView!
 
     //plistの配列を一時保存するメンバ変数
@@ -156,43 +159,39 @@ class ThirdViewController: UIViewController,UITableViewDelegate,UITableViewDataS
             //Key(ディクショナリー型で)Plistから取り出し
             let dic = readPlist(key:key)
             print(dic)
-            selectHototelDetailDic = dic as! NSDictionary
-
+            selectedDic = dic!
+            selectedKey = key
             //セグエのidentifierを指定して、画面移動
             performSegue(withIdentifier: "toDetail", sender: self)
+//            moveDetailView(keyDic: dic!, key: key)
+            //セグエのidentifierを指定して、画面移動
+//            let storyboard = UIStoryboard(name: "DetailFoodView", bundle: nil) // storyboardのインスタンスを名前指定で取得
+//            let nextVC = storyboard.instantiateInitialViewController() as! UIViewController // storyboard内で"is initial"に指定されているViewControllerを取得
+//
+//            self.present(nextVC, animated: true, completion: nil)
+//
         }
         
-        print("①セルがタップされた時のイベント")
 
         
     }
     
     
 
-    //セグエを使って画面移動する時発動
+//    セグエを使って画面移動する時発動
     override func prepare(for segue:UIStoryboardSegue, sender:Any?){
         //次の画面のインスタンスを取得
-        var dvc = segue.destination as! DetailView
+        let dvc = segue.destination as! DetailFoodView
         //次の画面のプロパティにタップされたセルのkeyを渡す
-        dvc.getKeyDic = selectHototelDetailDic
-        
+        dvc.getFoodDic = self.selectedDic
+        dvc.key = self.selectedKey
+
         print("②セグエを使って画面移動する時発動")
 
-        
+
     }
     
-    func readPlist(key: String) -> NSDictionary? {
-        //plistの読み込み02--------------------------------------------------------
-        //ファイルパスを取得（エリア名が格納されているプロパティリスト）
-        let path = Bundle.main.path(forResource: "hotel_list_Detail", ofType: "plist")
-        //ファイルの内容を読み込んでディクショナリー型に格納
-        let dic = NSDictionary(contentsOfFile: path!)
-        
-        print("③plistの読み込み")
 
-        
-        return dic![key] as? NSDictionary
-    }
 
     //ボタンの装飾付き　ボタンを押した時の処理
     func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {

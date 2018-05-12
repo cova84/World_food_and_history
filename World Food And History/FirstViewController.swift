@@ -334,15 +334,14 @@ class FirstViewController: UIViewController,UITableViewDelegate,UITableViewDataS
             if id != 0 {
                 //Key(ディクショナリー型で)Plistから取り出し
                 let dic = readPlist(key:key)
-                print(dic)
-                selectHototelDetailDic = dic as! NSDictionary
+//                print(dic)
+//                selectHototelDetailDic = dic as! NSDictionary
                 
+                moveDetailView(keyDic: dic!,key: key)
+
                 //セグエのidentifierを指定して、画面移動
-                performSegue(withIdentifier: "toDetail", sender: self)
+//                performSegue(withIdentifier: "toDetail", sender: self)
             }
-            
-            print("①セルがタップされた時のイベント")
-            
             
             
         }else{
@@ -562,7 +561,6 @@ class FirstViewController: UIViewController,UITableViewDelegate,UITableViewDataS
             let idDic = dic["id"]! as! Int
             //let idNum = Int(atof(idDic))
             
-            print(dic,"でや")
             inn.append((
                 title: "\(hotelNameDic)"
                 , no: idDic
@@ -580,33 +578,7 @@ class FirstViewController: UIViewController,UITableViewDelegate,UITableViewDataS
         
     }
     
-    
-    
-    //セグエを使って画面移動する時発動
-    override func prepare(for segue:UIStoryboardSegue, sender:Any?){
-        //次の画面のインスタンスを取得
-        var dvc = segue.destination as! DetailView
-        //次の画面のプロパティにタップされたセルのkeyを渡す
-        dvc.getKeyDic = selectHototelDetailDic
-        
-        print("②セグエを使って画面移動する時発動")
-        
-    }
-    
-    
-    
-    func readPlist(key: String) -> NSDictionary? {
-        //plistの読み込み02--------------------------------------------------------
-        //ファイルパスを取得（エリア名が格納されているプロパティリスト）
-        let path = Bundle.main.path(forResource: "hotel_list_Detail", ofType: "plist")
-        //ファイルの内容を読み込んでディクショナリー型に格納
-        let dic = NSDictionary(contentsOfFile: path!)
-        
-        print("③plistの読み込み")
-        
-        
-        return dic![key] as? NSDictionary
-    }
+
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
