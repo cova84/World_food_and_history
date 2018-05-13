@@ -11,22 +11,16 @@ import UIKit
 
 class FirstViewController: UIViewController,UITableViewDelegate,UITableViewDataSource {
     
-    var selectedDic:NSDictionary!
-    var selectedKey:String!
-    
-    //plistの配列を一時保存するメンバ変数
-    var selectHototelDetailDic = NSDictionary()
     
     //タップされたtopTableViewの配列を格納するメンバ変数
     var contentHotel:[NSDictionary] = []
 
     //選択されたエリア名を保存するメンバ変数
-    var keyList:[String] = []
     var dataList:[NSDictionary] = []
     
-    //toDitailセグエ用　plistの配列を保存するメンバ変数
-    var getKeyDic = NSDictionary()
-    
+    //toDetailセグエ用　plistの配列を保存するメンバ変数
+    var selectedDic:NSDictionary!
+
     
     @IBOutlet weak var topTableView: UITableView!
     
@@ -34,12 +28,14 @@ class FirstViewController: UIViewController,UITableViewDelegate,UITableViewDataS
     
     var country:[(title: String, no:Int, details: [Int], extended: Bool,category:Int)] = []
     
-    var inn:[(title: String, no:Int, details: [Int], extended: Bool,category:Int)] = []
-    
+    var food:[(title: String, no:Int, details: [Int], extended: Bool,category:Int)] = []
+
     //表示専用の配列
     var viewData:[(title: String, no:Int, details: [Int], extended: Bool,category:Int)] = []
-    
-    
+    var colorOfCategory1:UIColor!
+    var colorOfCategory2:UIColor!
+    var colorOfCategory3:UIColor!
+
     @IBOutlet weak var myTableView: UITableView!
     
     override func viewDidLoad() {
@@ -49,17 +45,21 @@ class FirstViewController: UIViewController,UITableViewDelegate,UITableViewDataS
         let cellHeight:CGFloat = 30.0
         self.myTableView.register(UINib(nibName: "AreaCustomCell", bundle: nil), forCellReuseIdentifier: "TopAreaCell")
         self.myTableView.estimatedRowHeight = cellHeight
-        self.myTableView.rowHeight = UITableViewAutomaticDimension
+//        self.myTableView.rowHeight = UITableViewAutomaticDimension
         
         self.myTableView.register(UINib(nibName: "CountryCustomCell", bundle: nil), forCellReuseIdentifier: "TopCountryCell")
 //        self.myTableView.estimatedRowHeight = cellHeight
-        self.myTableView.rowHeight = UITableViewAutomaticDimension
+//        self.myTableView.rowHeight = UITableViewAutomaticDimension
         
         self.myTableView.register(UINib(nibName: "CuisineCustomCell", bundle: nil), forCellReuseIdentifier: "TopHotelCell")
 //        self.myTableView.estimatedRowHeight = cellHeight
-        self.myTableView.rowHeight = UITableViewAutomaticDimension
+//        self.myTableView.rowHeight = UITableViewAutomaticDimension
         
-        //動きを確認するのに必要なデータの作成
+        colorOfCategory1 = UIColor(red: 0, green: 0, blue: 0, alpha: 0.75)
+        colorOfCategory2 = UIColor(red: 0, green: 0, blue: 0, alpha: 0.60)
+        colorOfCategory3 = UIColor(red: 0, green: 0, blue: 0, alpha: 0.45)
+        
+        //リストデータの作成
         createData()
         
     }
@@ -76,7 +76,7 @@ class FirstViewController: UIViewController,UITableViewDelegate,UITableViewDataS
         //pNumberでスイッチ。Noを受け取り色分けする？^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
         //開閉状態を一旦別変数へ退避
         let previousViewData = viewData
-        var pNumber = indexPath.row
+        let pNumber = indexPath.row
         
         switch previousViewData[pNumber].category {
         case 1 :
@@ -85,75 +85,9 @@ class FirstViewController: UIViewController,UITableViewDelegate,UITableViewDataS
             cell.tag = viewData[indexPath.row].no
             myTableView.separatorColor = UIColor.white
             
-            //北アメリカ
-            if cell.tag == 1 {
-                cell.background?.backgroundColor = UIColor(
-                    red: 248/255.0
-                    , green: 49/255.0
-                    , blue: 98/255.0
-                    , alpha: 1.0
-                )
-            }
+           
             
-            //中南米
-            if cell.tag == 2{
-                cell.background?.backgroundColor = UIColor(
-                    red: 246/255.0
-                    , green: 49/255.0
-                    , blue: 241/255.0
-                    , alpha: 1.0
-                )
-            }
-            
-            //アジア（北〜東〜東南アジア）
-            if cell.tag == 3{
-                cell.background?.backgroundColor = UIColor(
-                    red: 42/255.0
-                    , green: 37/255.0
-                    , blue: 255/255.0
-                    , alpha: 1.0
-                )
-            }
-            
-            //アジア（中央〜南〜西アジア）
-            if cell.tag == 4{
-                cell.background?.backgroundColor = UIColor(
-                    red: 39/255.0
-                    , green: 162/255.0
-                    , blue: 255/255.0
-                    , alpha: 1.0
-                )
-            }
-            
-            //ヨーロッパ
-            if cell.tag == 6{
-                cell.background?.backgroundColor = UIColor(
-                    red: 255/255.0
-                    , green: 193/255.0
-                    , blue: 37/255.0
-                    , alpha: 1.0
-                )
-            }
-            
-            //アフリカ
-            if cell.tag == 7{
-                cell.background?.backgroundColor = UIColor(
-                    red: 16/255.0
-                    , green: 107/255.0
-                    , blue: 20/255.0
-                    , alpha: 1.0
-                )
-            }
-            
-            //オーストラリア・オセアニア
-            if cell.tag == 8{
-                cell.background?.backgroundColor = UIColor(
-                    red: 28/255.0
-                    , green: 193/255.0
-                    , blue: 34/255.0
-                    , alpha: 1.0
-                )
-            }
+            cell.background.backgroundColor = colorOfCategory1
             
             return cell
             
@@ -164,74 +98,9 @@ class FirstViewController: UIViewController,UITableViewDelegate,UITableViewDataS
             cell.tag = viewData[indexPath.row].no
             myTableView.separatorColor = UIColor.white
             
-            //北アメリカ
-            if viewData[indexPath.row].no >= 0 && viewData[indexPath.row].no < 200{
-                cell.background?.backgroundColor = UIColor(
-                    red: 248/255.0
-                    , green: 49/255.0
-                    , blue: 98/255.0
-                    , alpha: 0.75
-                )
-            }
             
-            //中南米
-            if viewData[indexPath.row].no >= 200 && viewData[indexPath.row].no < 300{
-                cell.background?.backgroundColor = UIColor(
-                    red: 246/255.0
-                    , green: 49/255.0
-                    , blue: 241/255.0
-                    , alpha: 0.75
-                )
-            }
-            
-            //アジア（北〜東〜東南アジア）
-            if viewData[indexPath.row].no >= 600 && viewData[indexPath.row].no < 900{
-                cell.background?.backgroundColor = UIColor(
-                    red: 42/255.0
-                    , green: 37/255.0
-                    , blue: 255/255.0
-                    , alpha: 0.75
-                )
-            }
-            //アジア（中央〜南〜西アジア）
-            if viewData[indexPath.row].no >= 900 && viewData[indexPath.row].no < 1300{
-                cell.background?.backgroundColor = UIColor(
-                    red: 39/255.0
-                    , green: 162/255.0
-                    , blue: 255/255.0
-                    , alpha: 0.75
-                )
-            }
-            
-            //ヨーロッパ
-            if viewData[indexPath.row].no >= 300 && viewData[indexPath.row].no < 500{
-                cell.background?.backgroundColor = UIColor(
-                    red: 255/255.0
-                    , green: 193/255.0
-                    , blue: 37/255.0
-                    , alpha: 0.75
-                )
-            }
-            
-            //アフリカ
-            if viewData[indexPath.row].no >= 500 && viewData[indexPath.row].no < 600{
-                cell.background?.backgroundColor = UIColor(
-                    red: 16/255.0
-                    , green: 107/255.0
-                    , blue: 20/255.0
-                    , alpha: 0.75
-                )
-            }
-            
-            //オーストラリア・オセアニア
-            if viewData[indexPath.row].no >= 1300 && viewData[indexPath.row].no < 1400{
-                cell.background?.backgroundColor = UIColor(
-                    red: 28/255.0
-                    , green: 193/255.0
-                    , blue: 34/255.0
-                    , alpha: 0.75
-                )
-            }
+            cell.background.backgroundColor = colorOfCategory2
+
             
             return cell
             
@@ -243,77 +112,8 @@ class FirstViewController: UIViewController,UITableViewDelegate,UITableViewDataS
             cell.tag = viewData[indexPath.row].no
             myTableView.separatorColor = UIColor.white
             
-            
-            //北アメリカ
-            if viewData[indexPath.row].no >= 0 && viewData[indexPath.row].no < 200{
-                cell.background?.backgroundColor = UIColor(
-                    red: 248/255.0
-                    , green: 49/255.0
-                    , blue: 98/255.0
-                    , alpha: 0.50
-                )
-            }
-            
-            //中南米
-            if viewData[indexPath.row].no >= 200 && viewData[indexPath.row].no < 300{
-                cell.background?.backgroundColor = UIColor(
-                    red: 246/255.0
-                    , green: 49/255.0
-                    , blue: 241/255.0
-                    , alpha: 0.50
-                )
-            }
-            
-            //アジア（北〜東〜東南アジア）
-            if viewData[indexPath.row].no >= 600 && viewData[indexPath.row].no < 900{
-                cell.background?.backgroundColor = UIColor(
-                    red: 42/255.0
-                    , green: 37/255.0
-                    , blue: 255/255.0
-                    , alpha: 0.50
-                )
-            }
-            
-            //アジア（中央〜南〜西アジア）
-            if viewData[indexPath.row].no >= 900 && viewData[indexPath.row].no < 1300{
-                cell.background?.backgroundColor = UIColor(
-                    red: 39/255.0
-                    , green: 162/255.0
-                    , blue: 255/255.0
-                    , alpha: 0.50
-                )
-            }
-            
-            //ヨーロッパ
-            if viewData[indexPath.row].no >= 300 && viewData[indexPath.row].no < 500{
-                cell.background?.backgroundColor = UIColor(
-                    red: 255/255.0
-                    , green: 193/255.0
-                    , blue: 37/255.0
-                    , alpha: 0.50
-                )
-            }
-            
-            //アフリカ
-            if viewData[indexPath.row].no >= 500 && viewData[indexPath.row].no < 600{
-                cell.background?.backgroundColor = UIColor(
-                    red: 16/255.0
-                    , green: 107/255.0
-                    , blue: 20/255.0
-                    , alpha: 0.50
-                )
-            }
-            
-            //オーストラリア・オセアニア
-            if viewData[indexPath.row].no >= 1300 && viewData[indexPath.row].no < 1400{
-                cell.background?.backgroundColor = UIColor(
-                    red: 28/255.0
-                    , green: 193/255.0
-                    , blue: 34/255.0
-                    , alpha: 0.50
-                )
-            }
-            
+            cell.background.backgroundColor = colorOfCategory3
+
             return cell
         }
     }
@@ -338,7 +138,6 @@ class FirstViewController: UIViewController,UITableViewDelegate,UITableViewDataS
                 //Key(ディクショナリー型で)Plistから取り出し
                 let dic = readPlist(key:key)
                 selectedDic = dic!
-                selectedKey = key
 
 
                 //セグエのidentifierを指定して、画面移動
@@ -374,7 +173,6 @@ class FirstViewController: UIViewController,UITableViewDelegate,UITableViewDataS
         let dvc = segue.destination as! DetailFoodView
         //次の画面のプロパティにタップされたセルのkeyを渡す
         dvc.getFoodDic = self.selectedDic
-        dvc.key = self.selectedKey
         
         
         
@@ -460,7 +258,7 @@ class FirstViewController: UIViewController,UITableViewDelegate,UITableViewDataS
                     if previousViewData[pNumber].category == 2 {
                         
                         for deach in ids{
-                            for ieach in inn{
+                            for ieach in food{
                                 if ieach.no == deach{
                                     viewData.append((title: ieach.title,no: ieach.no,details:ieach.details,extended:false,category:3))
                                     changeNum += 1
@@ -515,6 +313,48 @@ class FirstViewController: UIViewController,UITableViewDelegate,UITableViewDataS
     
     func createData(){
         
+        createAreaArray()
+        
+        createCountryArray()
+        
+
+        
+        //plistの読み込み--------------------------------------------------------
+        //ファイルパスを取得（エリア名が格納されているプロパティリスト）
+        let path1 = Bundle.main.path(forResource: "hotel_list_Detail", ofType: "plist")
+        //ファイルの内容を読み込んでディクショナリー型に格納
+        let hotelDetailDic = NSDictionary(contentsOfFile: path1!)
+
+        let path2 = Bundle.main.path(forResource: "food_list_Detail", ofType: "plist")
+        //ファイルの内容を読み込んでディクショナリー型に格納
+        let foodListDic = NSDictionary(contentsOfFile: path2!)
+
+
+
+        for (key,data) in foodListDic! {
+            
+            let dic = data as! NSDictionary
+            let foodNameDic = dic["food_name"]! as! String
+            let idDic = dic["id"]! as! Int
+            //let idNum = Int(atof(idDic))
+            
+            food.append((
+                title: "\(foodNameDic)"
+                , no: idDic
+                , details: []
+                , extended: false
+                , category: 3
+            ))
+            
+            
+            
+        }
+        //最初はエリアだけを表示するためエリアのみを表示用の配列に保存しておく
+        viewData = area
+        
+    }
+    
+    func createAreaArray() {
         area.append((title: "北アメリカ",no:    1    , details: [    110,    100,                                                        ], extended: false,category:1))
         area.append((title: "中南米",no:    2    , details: [    200,    210,    220,    230,    240,    250,    260,                                    ], extended: false,category:1))
         area.append((title: "アジア（北〜東〜東南アジア）",no:    3    , details: [    700,    710,    800,    810,    820,    830,                                        ], extended: false,category:1))
@@ -524,9 +364,9 @@ class FirstViewController: UIViewController,UITableViewDelegate,UITableViewDataS
         area.append((title: "アフリカ",no:    7    , details: [    500,    510,                                                        ], extended: false,category:1))
         area.append((title: "オーストラリア・オセアニア",no:    8    , details: [    1300,    1310,                                                        ], extended: false,category:1))
 
-        
-        
-        
+    }
+    
+    func createCountryArray() {
         country.append((title: "アメリカ",no:    110    , details: [     ], extended: false,category:2))
         country.append((title: "カナダ",no:    100    , details: [    101,    102,    103,    105,    106,    107,    108,                                                    ], extended: false,category:2))
         country.append((title: "ジャマイカ",no:    200    , details: [    201,    202,                                                                            ], extended: false,category:2))
@@ -559,39 +399,7 @@ class FirstViewController: UIViewController,UITableViewDelegate,UITableViewDataS
         country.append((title: "オーストラリア",no:    1300    , details: [    1301,                                                                                ], extended: false,category:2))
         country.append((title: "ニュージーランド",no:    1310    , details: [     1314,                                                                    ], extended: false,category:2))
 
-        
-        //plistの読み込み--------------------------------------------------------
-        //ファイルパスを取得（エリア名が格納されているプロパティリスト）
-        let path1 = Bundle.main.path(forResource: "hotel_list_Detail", ofType: "plist")
-        //ファイルの内容を読み込んでディクショナリー型に格納
-        let hotelDetailDic = NSDictionary(contentsOfFile: path1!)
-        
-        
-        for (key,data) in hotelDetailDic! {
-            keyList.append(key as! String)
-            
-            let dic = hotelDetailDic![key]! as! NSDictionary
-            let hotelNameDic = dic["hotelName"]! as! String
-            let idDic = dic["id"]! as! Int
-            //let idNum = Int(atof(idDic))
-            
-            inn.append((
-                title: "\(hotelNameDic)"
-                , no: idDic
-                , details: []
-                , extended: false
-                , category: 3
-            ))
-            
-            contentHotel.append(dic as NSDictionary)
-            
-        }
-        
-        //最初はエリアだけを表示するためエリアのみを表示用の配列に保存しておく
-        viewData = area
-        
     }
-    
 
     
     override func didReceiveMemoryWarning() {

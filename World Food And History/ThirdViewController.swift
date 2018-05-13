@@ -12,15 +12,16 @@ import CoreData
 
 class ThirdViewController: UIViewController,UITableViewDelegate,UITableViewDataSource {
 
-    var selectedDic:NSDictionary!
-    var selectedKey:String!
+    
+
     
     @IBOutlet weak var favoriteTableView: UITableView!
 
     //plistの配列を一時保存するメンバ変数
     var selectHototelDetailDic = NSDictionary()
-    //toDitailセグエ用　plistの配列を保存するメンバ変数
-    var getKeyDic = NSDictionary()
+    //toDetailセグエ用　plistの配列を保存するメンバ変数
+    var selectedDic:NSDictionary!
+
     
     //Favorite（内容を）格納する配列TabelViewを準備
     var contentCuisine:[NSDictionary] = []
@@ -160,7 +161,6 @@ class ThirdViewController: UIViewController,UITableViewDelegate,UITableViewDataS
             let dic = readPlist(key:key)
             print(dic)
             selectedDic = dic!
-            selectedKey = key
             //セグエのidentifierを指定して、画面移動
             performSegue(withIdentifier: "toDetail", sender: self)
 //            moveDetailView(keyDic: dic!, key: key)
@@ -184,9 +184,7 @@ class ThirdViewController: UIViewController,UITableViewDelegate,UITableViewDataS
         let dvc = segue.destination as! DetailFoodView
         //次の画面のプロパティにタップされたセルのkeyを渡す
         dvc.getFoodDic = self.selectedDic
-        dvc.key = self.selectedKey
 
-        print("②セグエを使って画面移動する時発動")
 
 
     }

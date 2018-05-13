@@ -57,7 +57,6 @@ extension MovableDetailView where Self: UIViewController {
         self.view.insertSubview(nextVC.view, belowSubview: (self.tabBarController?.tabBar)!)
 
         nextVC.getFoodDic = keyDic
-        nextVC.key = key
         self.present(nextVC, animated: true, completion: nil)
         
     }

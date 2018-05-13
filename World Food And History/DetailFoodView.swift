@@ -39,8 +39,7 @@ class DetailFoodView: UIViewController
     
     // データ受け取り用
     var getFoodDic:NSDictionary!
-    var key:String!
-    
+
     // Favorite
     @IBOutlet weak var favoriteButton: UIButton!
     
@@ -59,10 +58,12 @@ class DetailFoodView: UIViewController
         super.viewDidLoad()
         
         tabBarController?.tabBar.isHidden = false
+        let id  = getFoodDic["id"] as! Int16
+
         //plistから読み出し処理
-        image1ImageView.image = UIImage(named:"\(key!)_1")
-        image2ImageView.image = UIImage(named: "\(key!)_2")
-        image3ImageView.image = UIImage(named: "\(key!)_3")
+        image1ImageView.image = UIImage(named:"\(id)_1")
+        image2ImageView.image = UIImage(named: "\(id)_2")
+        image3ImageView.image = UIImage(named: "\(id)_3")
         
         food_name_Label.text = getFoodDic["food_name"] as? String
         areaLabel.text = "発祥地域 \(getFoodDic["area"] as! String)"

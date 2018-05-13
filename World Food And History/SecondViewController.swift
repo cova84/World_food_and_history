@@ -21,11 +21,10 @@ class SecondViewController: UIViewController,MKMapViewDelegate {
 
     @IBOutlet weak var mapView: MKMapView!
 
-    //plistの配列を一時保存するメンバ変数
-    var selectPinKeyDic = NSDictionary()
-    //toDitailセグエ用　plistの配列を保存するメンバ変数
-    var getKeyDic = NSDictionary()
     
+    //toDitailセグエ用　plistの配列を保存するメンバ変数
+    var selectedDic:NSDictionary!
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -42,7 +41,7 @@ class SecondViewController: UIViewController,MKMapViewDelegate {
         
         //plistの読み込み02--------------------------------------------------------
         //ファイルパスを取得（エリア名が格納されているプロパティリスト）
-        let path = Bundle.main.path(forResource: "hotel_list_Detail", ofType: "plist")
+        let path = Bundle.main.path(forResource: "food_list_Detail", ofType: "plist")
         //ファイルの内容を読み込んでディクショナリー型に格納
         let dic = NSDictionary(contentsOfFile: path!)
         
@@ -51,12 +50,11 @@ class SecondViewController: UIViewController,MKMapViewDelegate {
             //Any型からDictionary型へ変換
             var dic = data as! NSDictionary
             //Dictionaryからキー指定で取り出すと必ずAny型になるので、ダウンキャスト変換が必要
-            print(dic["hotelName"] as! String)
             print(dic["latitude"] as! String)
             print(dic["longitude"] as! String)
             
             //座標オブジェクト //地図
-            let hotelName = dic["hotelName"] as! String
+            let food_name = dic["food_name"] as! String
             let latitude = dic["latitude"] as! String
             let longitude = dic["longitude"] as! String
             
@@ -72,7 +70,7 @@ class SecondViewController: UIViewController,MKMapViewDelegate {
             //2.pinの座標を設定
             myPin.coordinate = coodineate
             //3.タイトル、サブタイトルを設定（タップした時に出る、吹き出しの情報）
-            myPin.title = "\(hotelName)"
+            myPin.title = "\(food_name)"
             self.mapView.addAnnotation(myPin)
             //4.mapViewにPinを追加
             mapView.addAnnotation(myPin)
@@ -130,11 +128,9 @@ class SecondViewController: UIViewController,MKMapViewDelegate {
         
         if control == view.rightCalloutAccessoryView {
             //Key(ディクショナリー型で)値の保存
-            var pin:getDicMap = view.annotation as! getDicMap
-            selectPinKeyDic = pin.pinKeyDic
-//            print("view.annotation : \(view.annotation!)")
-//            print("pin.pinKeyDic : \(pin.pinKeyDic)")
-//
+            let pin:getDicMap = view.annotation as! getDicMap
+            selectedDic = pin.pinKeyDic
+
             //セグエのidentifierを指定して、画面移動
             performSegue(withIdentifier: "toDetail", sender: self)
         }
@@ -144,10 +140,10 @@ class SecondViewController: UIViewController,MKMapViewDelegate {
     override func prepare(for segue:UIStoryboardSegue, sender:Any?){
         
         //次の画面のインスタンスを取得
-        var dvc = segue.destination as! DetailView
+        let dvc = segue.destination as! DetailFoodView
         
         //次の画面のプロパティにタップされたピンのIDを渡す
-        dvc.getKeyDic = selectPinKeyDic
+        dvc.getFoodDic = selectedDic
 
     }
 }
