@@ -108,7 +108,10 @@ class FirstViewController: UIViewController,UITableViewDelegate,UITableViewDataS
         default:
             let cell = tableView.dequeueReusableCell(withIdentifier: "TopHotelCell", for: indexPath) as! CuisineCustomCell
             cell.varticalLabel.text = viewData[indexPath.row].title
+            let id = viewData[indexPath.row].no
             cell.foodImageView.image = UIImage(named:"\(viewData[indexPath.row].no)_1")
+            let dic = readPlist(key: "\(id)")
+            cell.detailLabel.text = dic!["legend1"] as? String
             cell.tag = viewData[indexPath.row].no
             myTableView.separatorColor = UIColor.white
             
@@ -237,7 +240,7 @@ class FirstViewController: UIViewController,UITableViewDelegate,UITableViewDataS
                 viewData.append(data)
                 if previousViewData[pNumber].extended{
                     //開く（子データ追加）
-                    var ids = previousViewData[pNumber].details
+                    let ids = previousViewData[pNumber].details
                     
                     //エリアの場合は紐づく国を追加
                     if previousViewData[pNumber].category == 1 {
@@ -321,17 +324,13 @@ class FirstViewController: UIViewController,UITableViewDelegate,UITableViewDataS
         
         //plistの読み込み--------------------------------------------------------
         //ファイルパスを取得（エリア名が格納されているプロパティリスト）
-        let path1 = Bundle.main.path(forResource: "hotel_list_Detail", ofType: "plist")
-        //ファイルの内容を読み込んでディクショナリー型に格納
-        let hotelDetailDic = NSDictionary(contentsOfFile: path1!)
-
         let path2 = Bundle.main.path(forResource: "food_list_Detail", ofType: "plist")
         //ファイルの内容を読み込んでディクショナリー型に格納
         let foodListDic = NSDictionary(contentsOfFile: path2!)
 
 
 
-        for (key,data) in foodListDic! {
+        for (_,data) in foodListDic! {
             
             let dic = data as! NSDictionary
             let foodNameDic = dic["food_name"]! as! String

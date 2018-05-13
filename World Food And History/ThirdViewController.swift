@@ -141,7 +141,7 @@ class ThirdViewController: UIViewController,UITableViewDelegate,UITableViewDataS
         //表示したい文字の設定（セルの中には文字、画像も入る）
         let dic = contentCuisine[indexPath.row]
         
-        cell.hotelLabel.text = dic["cuisine"] as! String
+        cell.hotelLabel.text = dic["cuisine"] as? String
         //文字を設定したセルを返す
         return cell
     }
@@ -159,7 +159,6 @@ class ThirdViewController: UIViewController,UITableViewDelegate,UITableViewDataS
         if id != 0 {
             //Key(ディクショナリー型で)Plistから取り出し
             let dic = readPlist(key:key)
-            print(dic)
             selectedDic = dic!
             //セグエのidentifierを指定して、画面移動
             performSegue(withIdentifier: "toDetail", sender: self)

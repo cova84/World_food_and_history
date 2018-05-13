@@ -12,7 +12,7 @@ class CuisineCustomCell: UITableViewCell {
 
     @IBOutlet weak var varticalLabel: UILabel!
     @IBOutlet weak var background: UIView!
-    @IBOutlet weak var detailLable: UILabel!
+    @IBOutlet weak var detailLabel: UILabel!
     @IBOutlet weak var foodImageView: UIImageView!
     
     override func awakeFromNib() {

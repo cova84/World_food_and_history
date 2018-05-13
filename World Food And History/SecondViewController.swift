@@ -46,9 +46,9 @@ class SecondViewController: UIViewController,MKMapViewDelegate {
         let dic = NSDictionary(contentsOfFile: path!)
         
         //配列の中身を高速
-        for (key,data) in dic! {
+        for (_ ,data) in dic! {
             //Any型からDictionary型へ変換
-            var dic = data as! NSDictionary
+            let dic = data as! NSDictionary
             //Dictionaryからキー指定で取り出すと必ずAny型になるので、ダウンキャスト変換が必要
             print(dic["latitude"] as! String)
             print(dic["longitude"] as! String)

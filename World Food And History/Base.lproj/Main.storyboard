@@ -329,7 +329,7 @@
                                     <outlet property="delegate" destination="1kl-1c-K7h" id="0uk-E9-J0F"/>
                                 </connections>
                             </tableView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="trailing" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9pS-ma-LSH">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9pS-ma-LSH">
                                 <rect key="frame" x="231" y="29" width="73" height="31"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="31" id="f4e-kR-jh3"/>
@@ -350,7 +350,7 @@
                             <constraint firstItem="vge-Is-w9K" firstAttribute="bottom" secondItem="rTa-7S-OAR" secondAttribute="bottom" id="Bko-es-7jG"/>
                             <constraint firstItem="rTa-7S-OAR" firstAttribute="trailing" secondItem="9pS-ma-LSH" secondAttribute="trailing" constant="16" id="Q5b-L5-Ftz"/>
                             <constraint firstItem="vge-Is-w9K" firstAttribute="trailing" secondItem="rTa-7S-OAR" secondAttribute="trailing" id="gVJ-x4-Sd1"/>
-                            <constraint firstItem="9pS-ma-LSH" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="Clg-8w-rt0" secondAttribute="leading" constant="20" symbolic="YES" id="kFY-Ap-rj0"/>
+                            <constraint firstItem="9pS-ma-LSH" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="rTa-7S-OAR" secondAttribute="leading" constant="20" symbolic="YES" id="kFY-Ap-rj0"/>
                             <constraint firstItem="vge-Is-w9K" firstAttribute="leading" secondItem="rTa-7S-OAR" secondAttribute="leading" id="rG5-Jk-l26"/>
                             <constraint firstItem="9pS-ma-LSH" firstAttribute="top" secondItem="rTa-7S-OAR" secondAttribute="top" constant="9" id="wpO-Eg-LkH"/>
                         </constraints>
@@ -449,6 +449,6 @@
         <image name="mapTab" width="30" height="30"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="c1Y-IX-Vpv"/>
+        <segue reference="2fV-sB-apj"/>
     </inferredMetricsTieBreakers>
 </document>
