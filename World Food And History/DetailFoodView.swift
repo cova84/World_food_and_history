@@ -9,6 +9,8 @@ import UIKit
 import CoreData
 
 class DetailFoodView: UIViewController
+//    ,UIGestureRecognizerDelegate
+    
 {
 
     // 画面表示用
@@ -31,10 +33,20 @@ class DetailFoodView: UIViewController
     
     @IBOutlet weak var header4Label: UILabel!
     
+//    @IBOutlet weak var header4TextView: UITextView!
+    
+    
     
     // データ受け取り用
     var getFoodDic:NSDictionary!
     var key:String!
+    
+    // Favorite
+    @IBOutlet weak var favoriteButton: UIButton!
+    
+    
+    // Gesture
+    var tapLinkRecognizer:UITapGestureRecognizer!
     
     override func loadView() {
 
@@ -52,20 +64,37 @@ class DetailFoodView: UIViewController
         image2ImageView.image = UIImage(named: "\(key!)_2")
         image3ImageView.image = UIImage(named: "\(key!)_3")
         
-        print(getFoodDic)
         food_name_Label.text = getFoodDic["food_name"] as? String
         areaLabel.text = "発祥地域 \(getFoodDic["area"] as! String)"
         header1Label.text = getFoodDic["header1"] as? String
         header2Label.text = getFoodDic["header2"] as? String
         header3Label.text = getFoodDic["header3"] as? String
-        header4Label.text = getFoodDic["header4"] as? String
+        
+        header4Label.attributedText = NSAttributedString(string: (getFoodDic["header4"] as? String)!, attributes:
+            [.underlineStyle: NSUnderlineStyle.styleSingle.rawValue])
+//        header4Label.text = getFoodDic["header4"] as? String
 
-        legend1TextView.text = getFoodDic["legent1"] as? String
-        legend2TextView.text = getFoodDic["legent2"] as? String
-        legend3TextView.text = getFoodDic["legent3"] as? String
+        legend1TextView.text = getFoodDic["legend1"] as? String
+        legend2TextView.text = getFoodDic["legend2"] as? String
+        legend3TextView.text = getFoodDic["legend3"] as? String
+
         legend1TextView.sizeToFit()
         legend2TextView.sizeToFit()
         legend3TextView.sizeToFit()
+        legend1TextView.sizeThatFits(legend1TextView.contentSize)
+        legend2TextView.sizeThatFits(legend2TextView.contentSize)
+        legend3TextView.sizeThatFits(legend3TextView.contentSize)
+
+//        header4TextView.text = getFoodDic["header4"] as? String
+//        header4TextView.sizeToFit()
+//
+//        header4TextView.sizeThatFits(header4TextView.contentSize)
+//
+                print("レジェンド",legend1TextView.frame.height,legend2TextView.frame.height,legend3TextView.frame.height)
+        legend1TextView.frame.size.height += 4
+        legend2TextView.frame.size.height += 4
+
+        print("レジェンド",legend1TextView.frame.height,legend2TextView.frame.height,legend3TextView.frame.height)
         
         // 各ラベルに代入処理
 //        let nextVC = HogeViewController.instantiate() // これだけでStoryboardに紐づいたHogeViewControllerを取得
@@ -75,9 +104,21 @@ class DetailFoodView: UIViewController
         // Do any additional setup after loading the view.
     }
     
+    override func viewDidLayoutSubviews() {
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        tapLinkRecognizer = UITapGestureRecognizer(target: self, action: #selector(tapURL))
+        header4Label.addGestureRecognizer(tapLinkRecognizer)
+//        tapLinkRecognizer.delegate = self
+    }
     
     @IBAction func tabFavorite(_ sender: UIButton) {
         saveFavorite()
+    }
+    
+    @IBAction func tapHeader4(_ sender: UITapGestureRecognizer) {
+        tapURL()
     }
     
     override func didReceiveMemoryWarning() {
@@ -85,8 +126,12 @@ class DetailFoodView: UIViewController
         // Dispose of any resources that can be recreated.
     }
     
+    func gestureRecognizerShouldBegin(_ gestureRecognizer: UIGestureRecognizer) -> Bool {
+        return true
+    }
+    
 
-    func tapURL () {
+    @objc func tapURL () {
         let url = NSURL(string: getFoodDic["url"]! as! String)
         UIApplication.shared.openURL(url! as URL)
         

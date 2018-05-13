@@ -11,6 +11,9 @@ import UIKit
 
 class FirstViewController: UIViewController,UITableViewDelegate,UITableViewDataSource {
     
+    var selectedDic:NSDictionary!
+    var selectedKey:String!
+    
     //plistの配列を一時保存するメンバ変数
     var selectHototelDetailDic = NSDictionary()
     
@@ -334,13 +337,12 @@ class FirstViewController: UIViewController,UITableViewDelegate,UITableViewDataS
             if id != 0 {
                 //Key(ディクショナリー型で)Plistから取り出し
                 let dic = readPlist(key:key)
-//                print(dic)
-//                selectHototelDetailDic = dic as! NSDictionary
-                
-                moveDetailView(keyDic: dic!,key: key)
+                selectedDic = dic!
+                selectedKey = key
+
 
                 //セグエのidentifierを指定して、画面移動
-//                performSegue(withIdentifier: "toDetail", sender: self)
+                performSegue(withIdentifier: "toDetail", sender: self)
             }
             
             
@@ -349,14 +351,14 @@ class FirstViewController: UIViewController,UITableViewDelegate,UITableViewDataS
             if viewData[indexPath.row].extended {
                 //閉じる
                 viewData[indexPath.row].extended = false
-                var changeRowNum = createViewData(indexNumber: indexPath.row)
+                let changeRowNum = createViewData(indexNumber: indexPath.row)
                 
                 self.toContract(tableView, indexPath: indexPath,changeRowNum: changeRowNum)
             }else{
                 //開く
                 viewData[indexPath.row].extended = true
                 
-                var changeRowNum = createViewData(indexNumber: indexPath.row)
+                let changeRowNum = createViewData(indexNumber: indexPath.row)
                 
                 self.toExpand(tableView, indexPath: indexPath,changeRowNum: changeRowNum)
             }
@@ -366,6 +368,17 @@ class FirstViewController: UIViewController,UITableViewDelegate,UITableViewDataS
         
     }
     
+    // tap後、segue発動
+    override func prepare(for segue:UIStoryboardSegue, sender:Any?){
+        //次の画面のインスタンスを取得
+        let dvc = segue.destination as! DetailFoodView
+        //次の画面のプロパティにタップされたセルのkeyを渡す
+        dvc.getFoodDic = self.selectedDic
+        dvc.key = self.selectedKey
+        
+        
+        
+    }
     
     
     /// close details.
@@ -405,6 +418,7 @@ class FirstViewController: UIViewController,UITableViewDelegate,UITableViewDataS
             row:indexPath.row, section:indexPath.section),
                               at: UITableViewScrollPosition.top, animated: true)
     }
+    
     
     func createViewData(indexNumber:Int)->Int{
         

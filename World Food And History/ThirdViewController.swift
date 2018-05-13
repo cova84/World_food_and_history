@@ -195,17 +195,21 @@ class ThirdViewController: UIViewController,UITableViewDelegate,UITableViewDataS
 
     //ボタンの装飾付き　ボタンを押した時の処理
     func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
-        print(#function)
+        print(#function,indexPath)
         let deleteButton: UITableViewRowAction = UITableViewRowAction(style: .normal, title: "Delete") { (action, index) -> Void in
-            self.favoriteTableView.deleteRows(at: [indexPath], with: .fade)
-            self.deleteOne(id: self.contentCuisine[indexPath.row]["id"] as! Int)
+            print(index,self.contentCuisine)
+            let id = self.contentCuisine[index.row]["id"] as! Int
+            self.contentCuisine.remove(at: index.row)
+            self.favoriteTableView.deleteRows(at: [index], with: .automatic)
+            self.deleteOne(id: id,index: index)
+            
         }
         deleteButton.backgroundColor = UIColor.blue
         
         return [deleteButton]
     }
     
-    func deleteOne(id: Int){
+    func deleteOne(id: Int,index:IndexPath){
         print(#function,id)
         //AppDelegate使う準備をする（インスタンス化）
             let appDelegate:AppDelegate = UIApplication.shared.delegate as! AppDelegate
@@ -222,7 +226,7 @@ class ThirdViewController: UIViewController,UITableViewDelegate,UITableViewDataS
                 //削除するデータを取得(今回は全て)
                 let fetchResults = try viewContext.fetch(query)
                     //削除処理を行うために型変換
-                let record = fetchResults[0] as! NSManagedObject
+                let record = fetchResults[0] as NSManagedObject
                 viewContext.delete(record)
                 //削除した状態を保存
                 try viewContext.save()
