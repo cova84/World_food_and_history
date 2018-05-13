@@ -1,0 +1,242 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_0" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Futura.ttc">
+            <string>Futura-Bold</string>
+            <string>Futura-Medium</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="DetailFoodView" customModuleProvider="target">
+            <connections>
+                <outlet property="areaLabel" destination="KYA-Og-JVY" id="fuj-13-JaI"/>
+                <outlet property="favoriteButton" destination="out-pH-nfM" id="k0V-Fe-B8j"/>
+                <outlet property="favoriteStackView" destination="OOx-Ow-VWL" id="eMn-sN-lzL"/>
+                <outlet property="food_name_Label" destination="CTV-3a-dND" id="h3Q-b7-pfZ"/>
+                <outlet property="header1Label" destination="XUi-bb-UMZ" id="Tbc-B2-0QQ"/>
+                <outlet property="header2Label" destination="KgK-td-P49" id="tzJ-Cb-7cm"/>
+                <outlet property="header3Label" destination="IO5-40-9ta" id="YnG-eK-O3J"/>
+                <outlet property="header4Label" destination="yH6-Ki-jT8" id="ems-qg-4og"/>
+                <outlet property="image1ImageView" destination="koZ-gA-usY" id="AXz-Wf-eyc"/>
+                <outlet property="image2ImageView" destination="8sd-a2-e2O" id="tv6-ia-0x2"/>
+                <outlet property="image3ImageView" destination="62p-YU-Zgh" id="zOP-4b-Izh"/>
+                <outlet property="legend1TextView" destination="MGz-e9-MNa" id="ZsI-Ej-4jA"/>
+                <outlet property="legend2TextView" destination="nHa-Y7-Ye9" id="yJr-Lp-4n9"/>
+                <outlet property="legend3TextView" destination="RSQ-kX-bYf" id="fH9-fe-rsn"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view autoresizesSubviews="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XWs-ZO-bZB" userLabel="TitleView">
+                    <rect key="frame" x="0.0" y="20" width="320" height="80"/>
+                    <subviews>
+                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" misplaced="YES" text="Food" lineBreakMode="tailTruncation" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="CTV-3a-dND">
+                            <rect key="frame" x="16" y="4" width="228" height="42"/>
+                            <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="42" id="PdG-HT-FUl"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" name="Futura-Bold" family="Futura" pointSize="32"/>
+                            <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" text="発祥地域" lineBreakMode="tailTruncation" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="KYA-Og-JVY">
+                            <rect key="frame" x="16" y="48" width="56" height="28"/>
+                            <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="28" id="sMr-oJ-e9s"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="14"/>
+                            <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <stackView opaque="NO" contentMode="center" horizontalCompressionResistancePriority="100" verticalCompressionResistancePriority="100" misplaced="YES" axis="vertical" distribution="fillProportionally" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="OOx-Ow-VWL" userLabel="FavoriteStack View">
+                            <rect key="frame" x="252" y="16" width="60" height="54"/>
+                            <subviews>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="out-pH-nfM">
+                                    <rect key="frame" x="0.0" y="0.0" width="40" height="40"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" secondItem="out-pH-nfM" secondAttribute="height" multiplier="1:1" id="o8P-HY-FqT"/>
+                                    </constraints>
+                                    <state key="normal" title="Button" image="Favorites_icon.png"/>
+                                    <connections>
+                                        <action selector="tabFavorite:" destination="-1" eventType="touchUpInside" id="dcG-rr-g8L"/>
+                                    </connections>
+                                </button>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Favorite" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="69w-60-oQ3">
+                                    <rect key="frame" x="0.0" y="40" width="60" height="14"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="14" id="qw2-4z-4LV"/>
+                                    </constraints>
+                                    <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="14"/>
+                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                            </subviews>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="60" id="U3a-ro-bxd"/>
+                                <constraint firstItem="69w-60-oQ3" firstAttribute="width" secondItem="OOx-Ow-VWL" secondAttribute="width" id="a8F-ZI-pff"/>
+                                <constraint firstAttribute="height" constant="54" id="osY-Th-oBh"/>
+                            </constraints>
+                        </stackView>
+                    </subviews>
+                    <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.75" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="80" id="1Lz-FI-TM9"/>
+                        <constraint firstItem="CTV-3a-dND" firstAttribute="top" secondItem="XWs-ZO-bZB" secondAttribute="top" constant="4" id="38c-6d-ZcK"/>
+                        <constraint firstAttribute="bottom" secondItem="KYA-Og-JVY" secondAttribute="bottom" constant="4" id="6g0-ps-g9x"/>
+                        <constraint firstItem="KYA-Og-JVY" firstAttribute="leading" secondItem="CTV-3a-dND" secondAttribute="leading" id="Hby-jx-ErL"/>
+                        <constraint firstItem="OOx-Ow-VWL" firstAttribute="top" secondItem="XWs-ZO-bZB" secondAttribute="top" constant="16" id="HzY-F6-4XS"/>
+                        <constraint firstAttribute="bottom" secondItem="OOx-Ow-VWL" secondAttribute="bottom" constant="10" id="RoX-0a-GkY"/>
+                        <constraint firstItem="OOx-Ow-VWL" firstAttribute="leading" secondItem="CTV-3a-dND" secondAttribute="trailing" constant="8" id="Uhj-XS-DuN"/>
+                        <constraint firstItem="CTV-3a-dND" firstAttribute="leading" secondItem="XWs-ZO-bZB" secondAttribute="leading" constant="16" id="cQc-Fw-76I"/>
+                        <constraint firstItem="CTV-3a-dND" firstAttribute="width" secondItem="XWs-ZO-bZB" secondAttribute="width" constant="-92" id="gZi-xk-vBS"/>
+                        <constraint firstAttribute="trailing" secondItem="OOx-Ow-VWL" secondAttribute="trailing" constant="8" id="lhn-Be-810"/>
+                    </constraints>
+                </view>
+                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ugC-1s-res">
+                    <rect key="frame" x="0.0" y="100" width="320" height="476"/>
+                    <subviews>
+                        <stackView opaque="NO" contentMode="center" axis="vertical" alignment="center" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="5A7-hB-23i" userLabel="Detail Stack View">
+                            <rect key="frame" x="0.0" y="0.0" width="320" height="1182"/>
+                            <subviews>
+                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="koZ-gA-usY" userLabel="Image View1">
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="213"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" secondItem="koZ-gA-usY" secondAttribute="height" multiplier="320:213" id="UGH-nr-yxY"/>
+                                    </constraints>
+                                </imageView>
+                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" text="ポイントは「酸味」と「マントウ」!?" lineBreakMode="tailTruncation" numberOfLines="2" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="XUi-bb-UMZ">
+                                    <rect key="frame" x="16" y="133" width="320" height="52"/>
+                                    <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <fontDescription key="fontDescription" name="Futura-Bold" family="Futura" pointSize="20"/>
+                                    <color key="textColor" red="0.0" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" text="シンガポール名物「チリクラブ」。大きなカニに甘辛いチリソースをかけた、シンガポール生まれのメニューです。シンガポールに行くと、観光客向けからローカル向けまで多くの店で提供されていて、どこに行こうか迷っちゃう！" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="MGz-e9-MNa" userLabel="Text View1">
+                                    <rect key="frame" x="16" y="185" width="320" height="109"/>
+                                    <color key="textColor" red="0.0" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                    <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="14"/>
+                                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                </textView>
+                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="8sd-a2-e2O" userLabel="Image View2">
+                                    <rect key="frame" x="0.0" y="294" width="320" height="213"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" secondItem="8sd-a2-e2O" secondAttribute="height" multiplier="320:213" id="KN5-BO-flY"/>
+                                    </constraints>
+                                </imageView>
+                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" text="チリクラブとは" lineBreakMode="tailTruncation" numberOfLines="2" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="KgK-td-P49">
+                                    <rect key="frame" x="16" y="507" width="320" height="26"/>
+                                    <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <fontDescription key="fontDescription" name="Futura-Bold" family="Futura" pointSize="20"/>
+                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="nHa-Y7-Ye9" userLabel="Text View2">
+                                    <rect key="frame" x="16" y="507" width="320" height="165"/>
+                                    <string key="text">ドウマンガニ、スリランカクラブ、マッドクラブといったカニに、チリやトマト（ケチャップ）、卵、酢などが入ったソースをかけたのがチリクラブ。エビチリのカニ版といったところでしょうか。その歴史は以外と浅く、考案されたのは1950年代。はじめはチリとトマトソースを合わせただけのソースだったのが、次第に現在のような形式に</string>
+                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                    <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="14"/>
+                                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                </textView>
+                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="62p-YU-Zgh" userLabel="Image View3">
+                                    <rect key="frame" x="0.0" y="672" width="320" height="213"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" secondItem="62p-YU-Zgh" secondAttribute="height" multiplier="320:213" id="Tju-ke-R6E"/>
+                                    </constraints>
+                                </imageView>
+                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" text="LONG BEACH Seafood Restaurant" lineBreakMode="tailTruncation" numberOfLines="2" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="IO5-40-9ta">
+                                    <rect key="frame" x="16" y="885" width="320" height="52"/>
+                                    <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <fontDescription key="fontDescription" name="Futura-Bold" family="Futura" pointSize="20"/>
+                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="RSQ-kX-bYf" userLabel="Text View3">
+                                    <rect key="frame" x="16" y="937" width="320" height="165"/>
+                                    <string key="text">1軒目は、LONG BEACH Seafood Restaurant（ロングビーチ・シーフード・レストラン）。ブラックペッパーで味付けした「Black Pepper Crab（ブラックペッパークラブ）」発祥の店といわれる有名な海鮮レストランで、多くの観光ガイドにも掲載されています。私は、市街地と空港の間、イーストコートと呼ばれるエリアの店舗を訪れました。</string>
+                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                    <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="14"/>
+                                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                </textView>
+                                <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yH6-Ki-jT8">
+                                    <rect key="frame" x="16" y="1102" width="320" height="18.5"/>
+                                    <gestureRecognizers/>
+                                    <attributedString key="attributedText">
+                                        <fragment content="Label">
+                                            <attributes>
+                                                <color key="NSColor" red="0.0" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                <font key="NSFont" size="14" name="Futura-Medium"/>
+                                                <integer key="NSUnderline" value="1"/>
+                                            </attributes>
+                                        </fragment>
+                                    </attributedString>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                            </subviews>
+                            <gestureRecognizers/>
+                            <constraints>
+                                <constraint firstItem="koZ-gA-usY" firstAttribute="width" secondItem="5A7-hB-23i" secondAttribute="width" id="668-z0-fX6"/>
+                                <constraint firstItem="KgK-td-P49" firstAttribute="leading" secondItem="XUi-bb-UMZ" secondAttribute="leading" id="6Kb-BM-4XX"/>
+                                <constraint firstItem="IO5-40-9ta" firstAttribute="trailing" secondItem="XUi-bb-UMZ" secondAttribute="trailing" id="Ab3-aA-rqq"/>
+                                <constraint firstItem="RSQ-kX-bYf" firstAttribute="trailing" secondItem="IO5-40-9ta" secondAttribute="trailing" id="C3b-fc-Lz6"/>
+                                <constraint firstItem="MGz-e9-MNa" firstAttribute="trailing" secondItem="XUi-bb-UMZ" secondAttribute="trailing" id="DSU-bP-qNT"/>
+                                <constraint firstItem="XUi-bb-UMZ" firstAttribute="leading" secondItem="5A7-hB-23i" secondAttribute="leading" constant="16" id="Fc4-UX-1Nf"/>
+                                <constraint firstItem="KgK-td-P49" firstAttribute="trailing" secondItem="XUi-bb-UMZ" secondAttribute="trailing" id="GuQ-5W-u1N"/>
+                                <constraint firstItem="nHa-Y7-Ye9" firstAttribute="leading" secondItem="KgK-td-P49" secondAttribute="leading" id="ICV-QC-2xR"/>
+                                <constraint firstItem="RSQ-kX-bYf" firstAttribute="leading" secondItem="IO5-40-9ta" secondAttribute="leading" id="KcX-5R-mte"/>
+                                <constraint firstItem="yH6-Ki-jT8" firstAttribute="leading" secondItem="RSQ-kX-bYf" secondAttribute="leading" id="Kv5-ie-ePE"/>
+                                <constraint firstItem="62p-YU-Zgh" firstAttribute="trailing" secondItem="koZ-gA-usY" secondAttribute="trailing" id="NKQ-wP-NXr"/>
+                                <constraint firstItem="MGz-e9-MNa" firstAttribute="leading" secondItem="XUi-bb-UMZ" secondAttribute="leading" id="QlT-35-3AM"/>
+                                <constraint firstAttribute="trailing" secondItem="XUi-bb-UMZ" secondAttribute="trailing" constant="16" id="UVv-X8-f3t"/>
+                                <constraint firstItem="koZ-gA-usY" firstAttribute="leading" secondItem="5A7-hB-23i" secondAttribute="leading" id="UjM-q0-HS9"/>
+                                <constraint firstItem="62p-YU-Zgh" firstAttribute="leading" secondItem="koZ-gA-usY" secondAttribute="leading" id="Xzo-xs-b3R"/>
+                                <constraint firstItem="yH6-Ki-jT8" firstAttribute="trailing" secondItem="RSQ-kX-bYf" secondAttribute="trailing" id="Y7C-ZX-EN0"/>
+                                <constraint firstItem="nHa-Y7-Ye9" firstAttribute="trailing" secondItem="KgK-td-P49" secondAttribute="trailing" id="eLZ-Xn-p0b"/>
+                                <constraint firstItem="8sd-a2-e2O" firstAttribute="trailing" secondItem="koZ-gA-usY" secondAttribute="trailing" id="jPh-T8-by8"/>
+                                <constraint firstItem="8sd-a2-e2O" firstAttribute="leading" secondItem="koZ-gA-usY" secondAttribute="leading" id="lTa-4F-QGt"/>
+                                <constraint firstItem="IO5-40-9ta" firstAttribute="leading" secondItem="XUi-bb-UMZ" secondAttribute="leading" id="xm6-yH-1w7"/>
+                            </constraints>
+                        </stackView>
+                    </subviews>
+                    <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstItem="5A7-hB-23i" firstAttribute="top" secondItem="ugC-1s-res" secondAttribute="top" id="8Mj-VU-6UA"/>
+                        <constraint firstItem="5A7-hB-23i" firstAttribute="leading" secondItem="ugC-1s-res" secondAttribute="leading" id="HkP-ho-hhd"/>
+                        <constraint firstAttribute="bottom" secondItem="5A7-hB-23i" secondAttribute="bottom" constant="8" id="fHB-mX-H4D"/>
+                        <constraint firstItem="5A7-hB-23i" firstAttribute="width" secondItem="ugC-1s-res" secondAttribute="width" id="lAD-50-0Xo"/>
+                        <constraint firstAttribute="trailing" secondItem="5A7-hB-23i" secondAttribute="trailing" id="nJy-s5-2hM"/>
+                    </constraints>
+                </scrollView>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="XWs-ZO-bZB" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="Ax4-eM-Z0t"/>
+                <constraint firstItem="ugC-1s-res" firstAttribute="leading" secondItem="XWs-ZO-bZB" secondAttribute="leading" id="BU9-w2-WZK"/>
+                <constraint firstItem="XWs-ZO-bZB" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="GbI-1J-ptm"/>
+                <constraint firstItem="ugC-1s-res" firstAttribute="top" secondItem="XWs-ZO-bZB" secondAttribute="bottom" id="PSO-QM-CLH"/>
+                <constraint firstItem="XWs-ZO-bZB" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="sDd-rV-0sz"/>
+                <constraint firstItem="ugC-1s-res" firstAttribute="trailing" secondItem="XWs-ZO-bZB" secondAttribute="trailing" id="wMi-ds-bSQ"/>
+                <constraint firstItem="ugC-1s-res" firstAttribute="bottom" secondItem="fnl-2z-Ty3" secondAttribute="bottom" constant="8" id="ymI-jt-Q6e"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <point key="canvasLocation" x="-86.5" y="-149.5"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="Favorites_icon.png" width="100" height="100"/>
+    </resources>
+</document>

@@ -11,6 +11,9 @@ import UIKit
 
 class FirstViewController: UIViewController,UITableViewDelegate,UITableViewDataSource {
     
+    var selectedDic:NSDictionary!
+    var selectedKey:String!
+    
     //plistの配列を一時保存するメンバ変数
     var selectHototelDetailDic = NSDictionary()
     
@@ -326,8 +329,6 @@ class FirstViewController: UIViewController,UITableViewDelegate,UITableViewDataS
             print(viewData[indexPath.row].no)
             
             //indexPathから読出ししたデータを取り出し
-            let hotelDic = contentHotel[indexPath.row]
-            //            let id = hotelDic["id"] as! Int16
             let id = viewData[indexPath.row].no
             
             let key:String = "\(id)"
@@ -336,15 +337,13 @@ class FirstViewController: UIViewController,UITableViewDelegate,UITableViewDataS
             if id != 0 {
                 //Key(ディクショナリー型で)Plistから取り出し
                 let dic = readPlist(key:key)
-                print(dic)
-                selectHototelDetailDic = dic as! NSDictionary
-                
+                selectedDic = dic!
+                selectedKey = key
+
+
                 //セグエのidentifierを指定して、画面移動
                 performSegue(withIdentifier: "toDetail", sender: self)
             }
-            
-            print("①セルがタップされた時のイベント")
-            
             
             
         }else{
@@ -352,14 +351,14 @@ class FirstViewController: UIViewController,UITableViewDelegate,UITableViewDataS
             if viewData[indexPath.row].extended {
                 //閉じる
                 viewData[indexPath.row].extended = false
-                var changeRowNum = createViewData(indexNumber: indexPath.row)
+                let changeRowNum = createViewData(indexNumber: indexPath.row)
                 
                 self.toContract(tableView, indexPath: indexPath,changeRowNum: changeRowNum)
             }else{
                 //開く
                 viewData[indexPath.row].extended = true
                 
-                var changeRowNum = createViewData(indexNumber: indexPath.row)
+                let changeRowNum = createViewData(indexNumber: indexPath.row)
                 
                 self.toExpand(tableView, indexPath: indexPath,changeRowNum: changeRowNum)
             }
@@ -369,6 +368,17 @@ class FirstViewController: UIViewController,UITableViewDelegate,UITableViewDataS
         
     }
     
+    // tap後、segue発動
+    override func prepare(for segue:UIStoryboardSegue, sender:Any?){
+        //次の画面のインスタンスを取得
+        let dvc = segue.destination as! DetailFoodView
+        //次の画面のプロパティにタップされたセルのkeyを渡す
+        dvc.getFoodDic = self.selectedDic
+        dvc.key = self.selectedKey
+        
+        
+        
+    }
     
     
     /// close details.
@@ -408,6 +418,7 @@ class FirstViewController: UIViewController,UITableViewDelegate,UITableViewDataS
             row:indexPath.row, section:indexPath.section),
                               at: UITableViewScrollPosition.top, animated: true)
     }
+    
     
     func createViewData(indexNumber:Int)->Int{
         
@@ -516,7 +527,7 @@ class FirstViewController: UIViewController,UITableViewDelegate,UITableViewDataS
         
         
         
-        country.append((title: "アメリカ",no:    110    , details: [    111,    112,    113,                                                                        ], extended: false,category:2))
+        country.append((title: "アメリカ",no:    110    , details: [     ], extended: false,category:2))
         country.append((title: "カナダ",no:    100    , details: [    101,    102,    103,    105,    106,    107,    108,                                                    ], extended: false,category:2))
         country.append((title: "ジャマイカ",no:    200    , details: [    201,    202,                                                                            ], extended: false,category:2))
         country.append((title: "グアテマラ",no:    210    , details: [    211,    212,    213,    214,                                                                    ], extended: false,category:2))
@@ -546,7 +557,7 @@ class FirstViewController: UIViewController,UITableViewDelegate,UITableViewDataS
         country.append((title: "ネパール",no:    900    , details: [    901,    902,                                                                            ], extended: false,category:2))
         country.append((title: "キルギス",no:    1100    , details: [    1101,                                                                                ], extended: false,category:2))
         country.append((title: "オーストラリア",no:    1300    , details: [    1301,                                                                                ], extended: false,category:2))
-        country.append((title: "ニュージーランド",no:    1310    , details: [    1311,    1312,     1314,                                                                    ], extended: false,category:2))
+        country.append((title: "ニュージーランド",no:    1310    , details: [     1314,                                                                    ], extended: false,category:2))
 
         
         //plistの読み込み--------------------------------------------------------
@@ -564,7 +575,6 @@ class FirstViewController: UIViewController,UITableViewDelegate,UITableViewDataS
             let idDic = dic["id"]! as! Int
             //let idNum = Int(atof(idDic))
             
-            print(dic,"でや")
             inn.append((
                 title: "\(hotelNameDic)"
                 , no: idDic
@@ -582,33 +592,7 @@ class FirstViewController: UIViewController,UITableViewDelegate,UITableViewDataS
         
     }
     
-    
-    
-    //セグエを使って画面移動する時発動
-    override func prepare(for segue:UIStoryboardSegue, sender:Any?){
-        //次の画面のインスタンスを取得
-        var dvc = segue.destination as! DetailView
-        //次の画面のプロパティにタップされたセルのkeyを渡す
-        dvc.getKeyDic = selectHototelDetailDic
-        
-        print("②セグエを使って画面移動する時発動")
-        
-    }
-    
-    
-    
-    func readPlist(key: String) -> NSDictionary? {
-        //plistの読み込み02--------------------------------------------------------
-        //ファイルパスを取得（エリア名が格納されているプロパティリスト）
-        let path = Bundle.main.path(forResource: "hotel_list_Detail", ofType: "plist")
-        //ファイルの内容を読み込んでディクショナリー型に格納
-        let dic = NSDictionary(contentsOfFile: path!)
-        
-        print("③plistの読み込み")
-        
-        
-        return dic![key] as? NSDictionary
-    }
+
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

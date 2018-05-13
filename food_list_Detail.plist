@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>101</key>
+	<dict>
+		<key>id</key>
+		<integer>101</integer>
+		<key>continentSub</key>
+		<string>北アメリカ</string>
+		<key>country</key>
+		<string>カナダ</string>
+		<key>food_name</key>
+		<string>チリクラブ</string>
+		<key>area</key>
+		<string>カナダ</string>
+		<key>latitude</key>
+		<string>49.241428</string>
+		<key>longitude</key>
+		<string>123.117873</string>
+		<key>header1</key>
+		<string>ポイントは「酸味」と「マントウ」!?</string>
+		<key>legend1</key>
+		<string>シンガポール名物「チリクラブ」。大きなカニに甘辛いチリソースをかけた、シンガポール生まれのメニューです。シンガポールに行くと、観光客向けからローカル向けまで多くの店で提供されていて、どこに行こうか迷っちゃう！
+
+ そんなときは、現地の人の意見を聞くに限ります。えん食べ編集部は、現地ガイドがオススメする2店で、真っ赤なチリクラブを食べ比べてみました。実はチリクラブ初体験の私（筆者）。どんな味に出会えるのか楽しみです！</string>
+		<key>header2</key>
+		<string>チリクラブとは</string>
+		<key>legend2</key>
+		<string>ドウマンガニ、スリランカクラブ、マッドクラブといったカニに、チリやトマト（ケチャップ）、卵、酢などが入ったソースをかけたのがチリクラブ。エビチリのカニ版といったところでしょうか。その歴史は以外と浅く、考案されたのは1950年代。はじめはチリとトマトソースを合わせただけのソースだったのが、次第に現在のような形式になっていったそうです。
+
+ 食べるときは、器具を使って殻を割り、身にソースをたっぷりとつけます。残ったソースは、饅頭（マントウ）をひたして召し上がれ。ものすごく手が汚れるけれど気にしたらダメ。手をベタベタにしながら豪快に食べるのが、醍醐味なのです。フィンガーボールやおしぼりは最後まで取っておきましょう。途中で使っても、また汚してしまうことになるので…。
+
+ それでは、私が訪れた、現地ガイドオススメの2店のチリクラブをご紹介します。ちなみに今回は単身取材だったため、食べている途中の写真はありません。カメラの保護を優先してしまいました…ごめんなさい！</string>
+		<key>header3</key>
+		<string>LONG BEACH Seafood Restaurant</string>
+		<key>legend3</key>
+		<string>1軒目は、LONG BEACH Seafood Restaurant（ロングビーチ・シーフード・レストラン）。ブラックペッパーで味付けした「Black Pepper Crab（ブラックペッパークラブ）」発祥の店といわれる有名な海鮮レストランで、多くの観光ガイドにも掲載されています。私は、市街地と空港の間、イーストコートと呼ばれるエリアの店舗を訪れました。
+ 
+ 店内にある大きな水槽には、さまざまな種類のカニが入っています。これらの中から大きさや種類を指定したりして調理してもらうのだとか。私はコース料理を予約していたので、カニを眺めながら料理の到着を待ちます。</string>
+		<key>header4</key>
+		<string>Dragon Phoenix（ドラゴン・フェニックス）</string>
+		<key>url</key>
+		<string>https://r.gnavi.co.jp/dd4kpc530000/</string>
+	</dict>
+	<key>103</key>
+	<dict>
+		<key>id</key>
+		<integer>103</integer>
+		<key>continentSub</key>
+		<string>北アメリカ</string>
+		<key>country</key>
+		<string>カナダ</string>
+		<key>food_name</key>
+		<string>チリクラブ</string>
+		<key>area</key>
+		<string>カナダ</string>
+		<key>latitude</key>
+		<string>49.241428</string>
+		<key>longitude</key>
+		<string>123.117873</string>
+		<key>header1</key>
+		<string>ポイントは「酸味」と「マントウ」!?</string>
+		<key>legend1</key>
+		<string>シンガポール名物「チリクラブ」。大きなカニに甘辛いチリソースをかけた、シンガポール生まれのメニューです。シンガポールに行くと、観光客向けからローカル向けまで多くの店で提供されていて、どこに行こうか迷っちゃう！ そんなときは、現地の人の意見を聞くに限ります。えん食べ編集部は、現地ガイドがオススメする2店で、真っ赤なチリクラブを食べ比べてみました。実はチリクラブ初体験の私（筆者）。どんな味に出会えるのか楽しみです！</string>
+		<key>header2</key>
+		<string>チリクラブとは</string>
+		<key>legend2</key>
+		<string>ドウマンガニ、スリランカクラブ、マッドクラブといったカニに、チリやトマト（ケチャップ）、卵、酢などが入ったソースをかけたのがチリクラブ。エビチリのカニ版といったところでしょうか。その歴史は以外と浅く、考案されたのは1950年代。はじめはチリとトマトソースを合わせただけのソースだったのが、次第に現在のような形式になっていったそうです。
+
+ 食べるときは、器具を使って殻を割り、身にソースをたっぷりとつけます。残ったソースは、饅頭（マントウ）をひたして召し上がれ。ものすごく手が汚れるけれど気にしたらダメ。手をベタベタにしながら豪快に食べるのが、醍醐味なのです。フィンガーボールやおしぼりは最後まで取っておきましょう。途中で使っても、また汚してしまうことになるので…。
+
+ それでは、私が訪れた、現地ガイドオススメの2店のチリクラブをご紹介します。ちなみに今回は単身取材だったため、食べている途中の写真はありません。カメラの保護を優先してしまいました…ごめんなさい！</string>
+		<key>header3</key>
+		<string>LONG BEACH Seafood Restaurant</string>
+		<key>legend3</key>
+		<string>1軒目は、LONG BEACH Seafood Restaurant（ロングビーチ・シーフード・レストラン）。ブラックペッパーで味付けした「Black Pepper Crab（ブラックペッパークラブ）」発祥の店といわれる有名な海鮮レストランで、多くの観光ガイドにも掲載されています。私は、市街地と空港の間、イーストコートと呼ばれるエリアの店舗を訪れました。
+ 
+ 店内にある大きな水槽には、さまざまな種類のカニが入っています。これらの中から大きさや種類を指定したりして調理してもらうのだとか。私はコース料理を予約していたので、カニを眺めながら料理の到着を待ちます。</string>
+		<key>header4</key>
+		<string>Dragon Phoenix（ドラゴン・フェニックス）</string>
+		<key>url</key>
+		<string>https://r.gnavi.co.jp/dd4kpc530000/</string>
+	</dict>
+	<key>1314</key>
+	<dict>
+		<key>id</key>
+		<integer>1314</integer>
+		<key>continentSub</key>
+		<string>北アメリカ</string>
+		<key>country</key>
+		<string>カナダ</string>
+		<key>food_name</key>
+		<string>チリクラブ</string>
+		<key>area</key>
+		<string>カナダ</string>
+		<key>latitude</key>
+		<string>49.241428</string>
+		<key>longitude</key>
+		<string>123.117873</string>
+		<key>header1</key>
+		<string>ポイントは「酸味」と「マントウ」!?</string>
+		<key>legend1</key>
+		<string>シンガポール名物「チリクラブ」。大きなカニに甘辛いチリソースをかけた、シンガポール生まれのメニューです。シンガポールに行くと、観光客向けからローカル向けまで多くの店で提供されていて、どこに行こうか迷っちゃう！ \nそんなときは、現地の人の意見を聞くに限ります。えん食べ編集部は、現地ガイドがオススメする2店で、真っ赤なチリクラブを食べ比べてみました。実はチリクラブ初体験の私（筆者）。どんな味に出会えるのか楽しみです！</string>
+		<key>header2</key>
+		<string>チリクラブとは</string>
+		<key>legend2</key>
+		<string>ドウマンガニ、スリランカクラブ、マッドクラブといったカニに、チリやトマト（ケチャップ）、卵、酢などが入ったソースをかけたのがチリクラブ。エビチリのカニ版といったところでしょうか。その歴史は以外と浅く、考案されたのは1950年代。はじめはチリとトマトソースを合わせただけのソースだったのが、次第に現在のような形式になっていったそうです。
+
+ 食べるときは、器具を使って殻を割り、身にソースをたっぷりとつけます。残ったソースは、饅頭（マントウ）をひたして召し上がれ。ものすごく手が汚れるけれど気にしたらダメ。手をベタベタにしながら豪快に食べるのが、醍醐味なのです。フィンガーボールやおしぼりは最後まで取っておきましょう。途中で使っても、また汚してしまうことになるので…。
+
+ それでは、私が訪れた、現地ガイドオススメの2店のチリクラブをご紹介します。ちなみに今回は単身取材だったため、食べている途中の写真はありません。カメラの保護を優先してしまいました…ごめんなさい！</string>
+		<key>header3</key>
+		<string>LONG BEACH Seafood Restaurant</string>
+		<key>legend3</key>
+		<string>1軒目は、LONG BEACH Seafood Restaurant（ロングビーチ・シーフード・レストラン）。ブラックペッパーで味付けした「Black Pepper Crab（ブラックペッパークラブ）」発祥の店といわれる有名な海鮮レストランで、多くの観光ガイドにも掲載されています。私は、市街地と空港の間、イーストコートと呼ばれるエリアの店舗を訪れました。
+ 
+ 店内にある大きな水槽には、さまざまな種類のカニが入っています。これらの中から大きさや種類を指定したりして調理してもらうのだとか。私はコース料理を予約していたので、カニを眺めながら料理の到着を待ちます。</string>
+		<key>header4</key>
+		<string>Dragon Phoenix（ドラゴン・フェニックス）</string>
+		<key>url</key>
+		<string>https://r.gnavi.co.jp/dd4kpc530000/</string>
+	</dict>
+</dict>
+</plist>

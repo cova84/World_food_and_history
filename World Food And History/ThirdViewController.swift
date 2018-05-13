@@ -12,6 +12,9 @@ import CoreData
 
 class ThirdViewController: UIViewController,UITableViewDelegate,UITableViewDataSource {
 
+    var selectedDic:NSDictionary!
+    var selectedKey:String!
+    
     @IBOutlet weak var favoriteTableView: UITableView!
 
     //plistの配列を一時保存するメンバ変数
@@ -21,8 +24,6 @@ class ThirdViewController: UIViewController,UITableViewDelegate,UITableViewDataS
     
     //Favorite（内容を）格納する配列TabelViewを準備
     var contentCuisine:[NSDictionary] = []
-    var contentCountry:[NSDictionary] = []
-    var contentID:[NSDictionary] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,11 +32,11 @@ class ThirdViewController: UIViewController,UITableViewDelegate,UITableViewDataS
     
     override func viewWillAppear(_ animated: Bool) {
         //CoreDataを読み込む処理
-        read()
+        readCoreDataAll()
     }
     
     //すでに存在するデータの読み込み処理
-    func read() {
+    func readCoreDataAll() {
         
         //一旦からにする（初期化）
         contentCuisine = []
@@ -119,7 +120,7 @@ class ThirdViewController: UIViewController,UITableViewDelegate,UITableViewDataS
             }catch{
             }
             //再読み込み
-            self.read()
+            self.readCoreDataAll()
         }))
         
     }
@@ -137,7 +138,7 @@ class ThirdViewController: UIViewController,UITableViewDelegate,UITableViewDataS
         //文字列を表示するセルの取得（セルの再利用）
         let cell = tableView.dequeueReusableCell(withIdentifier: "FavoriteCell", for: indexPath) as! customCellTableViewCell
         //表示したい文字の設定（セルの中には文字、画像も入る）
-        var dic = contentCuisine[indexPath.row]
+        let dic = contentCuisine[indexPath.row]
         
         cell.hotelLabel.text = dic["cuisine"] as! String
         //文字を設定したセルを返す
@@ -158,48 +159,93 @@ class ThirdViewController: UIViewController,UITableViewDelegate,UITableViewDataS
             //Key(ディクショナリー型で)Plistから取り出し
             let dic = readPlist(key:key)
             print(dic)
-            selectHototelDetailDic = dic as! NSDictionary
-
+            selectedDic = dic!
+            selectedKey = key
             //セグエのidentifierを指定して、画面移動
             performSegue(withIdentifier: "toDetail", sender: self)
+//            moveDetailView(keyDic: dic!, key: key)
+            //セグエのidentifierを指定して、画面移動
+//            let storyboard = UIStoryboard(name: "DetailFoodView", bundle: nil) // storyboardのインスタンスを名前指定で取得
+//            let nextVC = storyboard.instantiateInitialViewController() as! UIViewController // storyboard内で"is initial"に指定されているViewControllerを取得
+//
+//            self.present(nextVC, animated: true, completion: nil)
+//
         }
         
-        print("①セルがタップされた時のイベント")
 
         
     }
     
     
 
-    //セグエを使って画面移動する時発動
+//    セグエを使って画面移動する時発動
     override func prepare(for segue:UIStoryboardSegue, sender:Any?){
         //次の画面のインスタンスを取得
-        var dvc = segue.destination as! DetailView
+        let dvc = segue.destination as! DetailFoodView
         //次の画面のプロパティにタップされたセルのkeyを渡す
-        dvc.getKeyDic = selectHototelDetailDic
-        
+        dvc.getFoodDic = self.selectedDic
+        dvc.key = self.selectedKey
+
         print("②セグエを使って画面移動する時発動")
 
-        
-    }
-    
-    func readPlist(key: String) -> NSDictionary? {
-        //plistの読み込み02--------------------------------------------------------
-        //ファイルパスを取得（エリア名が格納されているプロパティリスト）
-        let path = Bundle.main.path(forResource: "hotel_list_Detail", ofType: "plist")
-        //ファイルの内容を読み込んでディクショナリー型に格納
-        let dic = NSDictionary(contentsOfFile: path!)
-        
-        print("③plistの読み込み")
 
-        
-        return dic![key] as? NSDictionary
     }
     
+
+
+    //ボタンの装飾付き　ボタンを押した時の処理
+    func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
+        print(#function,indexPath)
+        let deleteButton: UITableViewRowAction = UITableViewRowAction(style: .normal, title: "Delete") { (action, index) -> Void in
+            print(index,self.contentCuisine)
+            let id = self.contentCuisine[index.row]["id"] as! Int
+            self.contentCuisine.remove(at: index.row)
+            self.favoriteTableView.deleteRows(at: [index], with: .automatic)
+            self.deleteOne(id: id,index: index)
+            
+        }
+        deleteButton.backgroundColor = UIColor.blue
+        
+        return [deleteButton]
+    }
+    
+    func deleteOne(id: Int,index:IndexPath){
+        print(#function,id)
+        //AppDelegate使う準備をする（インスタンス化）
+            let appDelegate:AppDelegate = UIApplication.shared.delegate as! AppDelegate
+            //エンティティを操作する為のオブジェクトを作成
+            let viewContext = appDelegate.persistentContainer.viewContext
+            //どのエンティティからデータを取得するか設定（Favoriteエンティティ）
+            let query:NSFetchRequest<Favorite> = Favorite.fetchRequest()
+        
+            let favoritePredicate = NSPredicate(format: "id = %d", id)
+            query.predicate = favoritePredicate
+
+            //削除したデータを取得（今回は全て取得）
+            do{
+                //削除するデータを取得(今回は全て)
+                let fetchResults = try viewContext.fetch(query)
+                    //削除処理を行うために型変換
+                let record = fetchResults[0] as NSManagedObject
+                viewContext.delete(record)
+                //削除した状態を保存
+                try viewContext.save()
+                
+            }catch{
+                print(error)
+            }
+            //再読み込み
+            self.readCoreDataAll()
+        
+    }
+
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+        print(#function)
+        
     }
+    
     
 }
 
