@@ -18,7 +18,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="1024" height="1366"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="TOP_201804.PNG" translatesAutoresizingMaskIntoConstraints="NO" id="W1N-hB-iEw">
+                            <imageView autoresizesSubviews="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="TOP.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="W1N-hB-iEw">
                                 <rect key="frame" x="0.0" y="0.0" width="1022.5" height="1366"/>
                             </imageView>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Copyright © 2018 co-. All rights reserved." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="obG-Y5-kRd">
@@ -46,6 +46,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="TOP_201804.PNG" width="377" height="658"/>
+        <image name="TOP.jpg" width="377" height="658"/>
     </resources>
 </document>

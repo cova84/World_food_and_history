@@ -8,7 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		B266945220A55CF500D5B83B /* Favorites_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = B266945120A55CF300D5B83B /* Favorites_icon.png */; };
-		B2D63A742094A1680025C7EA /* TOP_201804.PNG in Resources */ = {isa = PBXBuildFile; fileRef = B2D63A732094A1680025C7EA /* TOP_201804.PNG */; };
+		B267B12C20A91D85005A5C18 /* Favorites_icon_done.png in Resources */ = {isa = PBXBuildFile; fileRef = B267B12B20A91D84005A5C18 /* Favorites_icon_done.png */; };
+		B267B13020A9814E005A5C18 /* TOP.PNG in Resources */ = {isa = PBXBuildFile; fileRef = B267B12F20A9814D005A5C18 /* TOP.PNG */; };
+		B267B13220A990EC005A5C18 /* TOP.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B267B13120A990EC005A5C18 /* TOP.jpg */; };
 		B2D63A762094A7190025C7EA /* CuisineCustomCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B2D63A752094A7190025C7EA /* CuisineCustomCell.xib */; };
 		B2D63A782094CD3C0025C7EA /* CuisineCustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2D63A772094CD3C0025C7EA /* CuisineCustomCell.swift */; };
 		B2E7BFFC20A653F100A11EC1 /* DetailFoodView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2E7BFFA20A653F100A11EC1 /* DetailFoodView.swift */; };
@@ -83,7 +85,9 @@
 
 /* Begin PBXFileReference section */
 		B266945120A55CF300D5B83B /* Favorites_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Favorites_icon.png; sourceTree = "<group>"; };
-		B2D63A732094A1680025C7EA /* TOP_201804.PNG */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TOP_201804.PNG; sourceTree = "<group>"; };
+		B267B12B20A91D84005A5C18 /* Favorites_icon_done.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Favorites_icon_done.png; sourceTree = "<group>"; };
+		B267B12F20A9814D005A5C18 /* TOP.PNG */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TOP.PNG; sourceTree = "<group>"; };
+		B267B13120A990EC005A5C18 /* TOP.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = TOP.jpg; sourceTree = "<group>"; };
 		B2D63A752094A7190025C7EA /* CuisineCustomCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CuisineCustomCell.xib; sourceTree = "<group>"; };
 		B2D63A772094CD3C0025C7EA /* CuisineCustomCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CuisineCustomCell.swift; sourceTree = "<group>"; };
 		B2E7BFFA20A653F100A11EC1 /* DetailFoodView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DetailFoodView.swift; path = "/Users/yuka/Documents/mySwift/co-/World_food_and_history/World Food And History/DetailFoodView.swift"; sourceTree = "<absolute>"; };
@@ -159,6 +163,7 @@
 		B266945020A55CF300D5B83B /* Button */ = {
 			isa = PBXGroup;
 			children = (
+				B267B12B20A91D84005A5C18 /* Favorites_icon_done.png */,
 				B266945120A55CF300D5B83B /* Favorites_icon.png */,
 			);
 			path = Button;
@@ -201,9 +206,10 @@
 				B2E7BFFF20A65ED200A11EC1 /* DetailFoodView.storyboard */,
 				D117090E1FBE997500F4B3E4 /* Main.storyboard */,
 				D1FE761B1FC7C471000786C3 /* LaunchScreen.storyboard */,
-				B2D63A732094A1680025C7EA /* TOP_201804.PNG */,
 				B266945020A55CF300D5B83B /* Button */,
 				D1D23C341FBCB426009D3895 /* Assets.xcassets */,
+				B267B12F20A9814D005A5C18 /* TOP.PNG */,
+				B267B13120A990EC005A5C18 /* TOP.jpg */,
 				D13C3BC11FE0C6A500A76A75 /* infoLink.jpg */,
 				D1D23C391FBCB426009D3895 /* Info.plist */,
 				D19AEF871FC731840080ACC0 /* hotel_list_Detail.plist */,
@@ -379,6 +385,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B2E7C00120A695E400A11EC1 /* DetailFoodView.xib in Resources */,
+				B267B12C20A91D85005A5C18 /* Favorites_icon_done.png in Resources */,
 				D17F9F8A1FE58ED100C3E753 /* MailCell_W.xib in Resources */,
 				D1D48CB11FE6448A008737FF /* AreaCustomCell.xib in Resources */,
 				D13C3BC21FE0C6A500A76A75 /* infoLink.jpg in Resources */,
@@ -393,9 +400,10 @@
 				D1FE761C1FC7C471000786C3 /* LaunchScreen.storyboard in Resources */,
 				D11709101FBE997500F4B3E4 /* Main.storyboard in Resources */,
 				D1159E031FE3537B00530826 /* URLCell_W.xib in Resources */,
-				B2D63A742094A1680025C7EA /* TOP_201804.PNG in Resources */,
 				B266945220A55CF500D5B83B /* Favorites_icon.png in Resources */,
+				B267B13220A990EC005A5C18 /* TOP.jpg in Resources */,
 				D1159E041FE3537B00530826 /* DetailViewCell_G.xib in Resources */,
+				B267B13020A9814E005A5C18 /* TOP.PNG in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

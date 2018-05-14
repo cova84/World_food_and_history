@@ -109,7 +109,7 @@ class FirstViewController: UIViewController,UITableViewDelegate,UITableViewDataS
             let cell = tableView.dequeueReusableCell(withIdentifier: "TopHotelCell", for: indexPath) as! CuisineCustomCell
             cell.varticalLabel.text = viewData[indexPath.row].title
             let id = viewData[indexPath.row].no
-            cell.foodImageView.image = UIImage(named:"\(viewData[indexPath.row].no)_1")
+            cell.foodImageView.image = UIImage(named:"\(viewData[indexPath.row].no)_01")
             let dic = readPlist(key: "\(id)")
             cell.detailLabel.text = dic!["legend1"] as? String
             cell.tag = viewData[indexPath.row].no

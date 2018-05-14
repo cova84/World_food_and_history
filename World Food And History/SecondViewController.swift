@@ -60,7 +60,7 @@ class SecondViewController: UIViewController,MKMapViewDelegate {
             
             //型変換が必要。String型〜Double型へ。atof()でくくると変わる。
             let coodineate = CLLocationCoordinate2DMake(atof(latitude), atof(longitude))
-                        
+            
             //地図にセット
             mapView.setRegion(region,animated: true)
             //1.pinオブシェクトを生成（）内は不要
@@ -69,14 +69,17 @@ class SecondViewController: UIViewController,MKMapViewDelegate {
             myPin.pinKeyDic = dic
             //2.pinの座標を設定
             myPin.coordinate = coodineate
+            
             //3.タイトル、サブタイトルを設定（タップした時に出る、吹き出しの情報）
             myPin.title = "\(food_name)"
             self.mapView.addAnnotation(myPin)
             //4.mapViewにPinを追加
             mapView.addAnnotation(myPin)
             
+            
         }
     }
+    
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -120,6 +123,7 @@ class SecondViewController: UIViewController,MKMapViewDelegate {
         else {
             pinView?.annotation = annotation
         }
+        pinView?.isDraggable = false  // pinがドラッグして動かないようにする設定
         return pinView
     }
     
@@ -131,10 +135,12 @@ class SecondViewController: UIViewController,MKMapViewDelegate {
             let pin:getDicMap = view.annotation as! getDicMap
             selectedDic = pin.pinKeyDic
 
+            
             //セグエのidentifierを指定して、画面移動
             performSegue(withIdentifier: "toDetail", sender: self)
         }
     }
+    
     
     //セグエを使って画面移動する時発動
     override func prepare(for segue:UIStoryboardSegue, sender:Any?){

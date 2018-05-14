@@ -162,13 +162,7 @@ class ThirdViewController: UIViewController,UITableViewDelegate,UITableViewDataS
             selectedDic = dic!
             //セグエのidentifierを指定して、画面移動
             performSegue(withIdentifier: "toDetail", sender: self)
-//            moveDetailView(keyDic: dic!, key: key)
-            //セグエのidentifierを指定して、画面移動
-//            let storyboard = UIStoryboard(name: "DetailFoodView", bundle: nil) // storyboardのインスタンスを名前指定で取得
-//            let nextVC = storyboard.instantiateInitialViewController() as! UIViewController // storyboard内で"is initial"に指定されているViewControllerを取得
-//
-//            self.present(nextVC, animated: true, completion: nil)
-//
+
         }
         
 
