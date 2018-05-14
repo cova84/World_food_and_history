@@ -13,6 +13,8 @@ class DetailFoodView: UIViewController
     
 {
 
+    @IBOutlet weak var detailScrollView: UIScrollView!
+    
     // 画面表示用
     @IBOutlet weak var food_name_Label: UILabel!
     @IBOutlet weak var areaLabel: UILabel!
@@ -33,17 +35,16 @@ class DetailFoodView: UIViewController
     
     @IBOutlet weak var header4Label: UILabel!
     
-//    @IBOutlet weak var header4TextView: UITextView!
     
     
     
     // データ受け取り用
     var getFoodDic:NSDictionary!
-    var key:String!
-    
+
     // Favorite
     @IBOutlet weak var favoriteButton: UIButton!
-    
+    var isFavorite:Bool = false
+
     
     // Gesture
     var tapLinkRecognizer:UITapGestureRecognizer!
@@ -59,21 +60,21 @@ class DetailFoodView: UIViewController
         super.viewDidLoad()
         
         tabBarController?.tabBar.isHidden = false
+        let id  = getFoodDic["id"] as! Int16
+
         //plistから読み出し処理
-        image1ImageView.image = UIImage(named:"\(key!)_1")
-        image2ImageView.image = UIImage(named: "\(key!)_2")
-        image3ImageView.image = UIImage(named: "\(key!)_3")
+        image1ImageView.image = UIImage(named:"\(id)_01")
+        image2ImageView.image = UIImage(named: "\(id)_02")
+        image3ImageView.image = UIImage(named: "\(id)_03")
         
         food_name_Label.text = getFoodDic["food_name"] as? String
         areaLabel.text = "発祥地域 \(getFoodDic["area"] as! String)"
         header1Label.text = getFoodDic["header1"] as? String
         header2Label.text = getFoodDic["header2"] as? String
         header3Label.text = getFoodDic["header3"] as? String
+        settingHeader4Label()
+ 
         
-        header4Label.attributedText = NSAttributedString(string: (getFoodDic["header4"] as? String)!, attributes:
-            [.underlineStyle: NSUnderlineStyle.styleSingle.rawValue])
-//        header4Label.text = getFoodDic["header4"] as? String
-
         legend1TextView.text = getFoodDic["legend1"] as? String
         legend2TextView.text = getFoodDic["legend2"] as? String
         legend3TextView.text = getFoodDic["legend3"] as? String
@@ -85,26 +86,46 @@ class DetailFoodView: UIViewController
         legend2TextView.sizeThatFits(legend2TextView.contentSize)
         legend3TextView.sizeThatFits(legend3TextView.contentSize)
 
-//        header4TextView.text = getFoodDic["header4"] as? String
-//        header4TextView.sizeToFit()
-//
-//        header4TextView.sizeThatFits(header4TextView.contentSize)
-//
-                print("レジェンド",legend1TextView.frame.height,legend2TextView.frame.height,legend3TextView.frame.height)
+
+        // StackViewで4pt空けているので足りないスペースをここで追加
         legend1TextView.frame.size.height += 4
         legend2TextView.frame.size.height += 4
 
-        print("レジェンド",legend1TextView.frame.height,legend2TextView.frame.height,legend3TextView.frame.height)
+
+        print(isFavorite)
+        checkFavoriteCoreData()
+        print(isFavorite)
+        if isFavorite {
+                favoriteButton.setImage(UIImage(named: "Favorites_icon_done.png"), for: .normal)
+        }
         
-        // 各ラベルに代入処理
-//        let nextVC = HogeViewController.instantiate() // これだけでStoryboardに紐づいたHogeViewControllerを取得
-//        self.present(ViewControllerVC, animated: true, completion: nil) // presentする
-//        
+
+    }
+
+    // Header4は空のときは表示しない
+    func settingHeader4Label() {
+        guard let header4Text = getFoodDic["header4"] as? String
         
-        // Do any additional setup after loading the view.
+            else {
+                header4Label.isHidden = true
+                print("else側")
+                return
+        }
+        if header4Text == "" {
+            print("空白側")
+            header4Label.isHidden = true
+            return
+        }
+        print("普通側")
+        // ラベルにアンダーバーをつけるためにatrributedTextに代入
+        header4Label.attributedText = NSAttributedString(string: header4Text, attributes:
+            [.underlineStyle: NSUnderlineStyle.styleSingle.rawValue])
+        header4Label.frame.size.height += 4
     }
     
+
     override func viewDidLayoutSubviews() {
+
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -114,7 +135,7 @@ class DetailFoodView: UIViewController
     }
     
     @IBAction func tabFavorite(_ sender: UIButton) {
-        saveFavorite()
+        saveOrDeleteFavorite()
     }
     
     @IBAction func tapHeader4(_ sender: UITapGestureRecognizer) {
@@ -132,25 +153,85 @@ class DetailFoodView: UIViewController
     
 
     @objc func tapURL () {
-        let url = NSURL(string: getFoodDic["url"]! as! String)
-        UIApplication.shared.openURL(url! as URL)
+        let url = URL(string: getFoodDic["url"]! as! String)
+//        UIApplication.shared.openURL(url! as URL)
+        UIApplication.shared.open(url!, completionHandler: nil)
         
     }
     
-    func saveFavorite () {
+    func saveOrDeleteFavorite () {
+        let id = getFoodDic["id"] as! Int
         //AppDelegateを使う用意をしておく（インスタンス化）
         let appDelegate:AppDelegate = UIApplication.shared.delegate as! AppDelegate
         //エンティティを操作する為のオブジェクト作成
         let viewContext = appDelegate.persistentContainer.viewContext
-        //Favoriteエンティティオブジェクトを作成
-        let favoriteEntity = NSEntityDescription.entity(forEntityName: "Favorite", in: viewContext)
-        
+
+        //=== すでにお気に入りに入っているか確認 ===
+        if !isFavorite {  // 入ってないので追加
+            //Favoriteエンティティオブジェクトを作成
+            let favoriteEntity = NSEntityDescription.entity(forEntityName: "Favorite", in: viewContext)
+            //Favoriteエンティティにレコード（行）を挿入する為のオブジェクトを作成
+            let newRecord = NSManagedObject(entity: favoriteEntity!, insertInto: viewContext)
+
+            //値のセット
+            let cuisine = getFoodDic["food_name"] as! String
+            let country = getFoodDic["country"] as! String
+
+            newRecord.setValue(cuisine, forKey: "cuisine")  //hotel列に文字列をセット
+            newRecord.setValue(country, forKey: "country")  //country列に文字列をセット
+            newRecord.setValue(id, forKey: "id")  //country列に文字列をセット
+            print("\(cuisine)","\(id)","\(country)")
+            
+            //レコード（行）の即時保存
+            do{
+                try viewContext.save()
+                print("お気に入りに保存されました")
+                
+            }catch{
+                //エラーが出た時に行う処理を書いておく場所
+                print(error, #function)
+            }
+            
+            isFavorite = true
+            favoriteButton.setImage(UIImage(named: "Favorites_icon_done.png"), for: .normal)
+        }
+        else {  //入っているので削除
+            //どのエンティティからデータを取得するか設定（Favoriteエンティティ）
+            let query:NSFetchRequest<Favorite> = Favorite.fetchRequest()
+            
+            let favoritePredicate = NSPredicate(format: "id = %d", id)
+            query.predicate = favoritePredicate
+            
+            //削除したデータを取得（今回は全て取得）
+            do{
+                //削除するデータを取得(今回は全て)
+                let fetchResults = try viewContext.fetch(query)
+                //削除処理を行うために型変換
+                let record = fetchResults[0] as NSManagedObject
+                viewContext.delete(record)
+                //削除した状態を保存
+                try viewContext.save()
+                
+            }catch{
+                print(error)
+            }
+            
+            isFavorite = false
+            favoriteButton.setImage(UIImage(named: "Favorites_icon.png"), for: .normal)
+
+            
+        }
+
+    }
+    
+    func checkFavoriteCoreData() {
+        //AppDelegateを使う用意をしておく（インスタンス化）
+        let appDelegate:AppDelegate = UIApplication.shared.delegate as! AppDelegate
+        //エンティティを操作する為のオブジェクト作成
+        let viewContext = appDelegate.persistentContainer.viewContext
         
         let query:NSFetchRequest<Favorite> = Favorite.fetchRequest()
         
-        //値のセット
-        let cuisine = getFoodDic["food_name"] as! String
-        let country = getFoodDic["country"] as! String
         let id = getFoodDic["id"] as! Int
         
         
@@ -161,28 +242,27 @@ class DetailFoodView: UIViewController
         do {
             let fetchResults = try viewContext.fetch(query)
             
-            if( fetchResults.count == 0 ) {
-                //Favoriteエンティティにレコード（行）を挿入する為のオブジェクトを作成
-                let newRecord = NSManagedObject(entity: favoriteEntity!, insertInto: viewContext)
-                
-                newRecord.setValue(cuisine, forKey: "cuisine")  //hotel列に文字列をセット
-                newRecord.setValue(country, forKey: "country")  //country列に文字列をセット
-                newRecord.setValue(id, forKey: "id")  //country列に文字列をセット
-                print("\(cuisine)","\(id)","\(country)")
-                
-                //レコード（行）の即時保存
-                do{
-                    try viewContext.save()
-                    print("お気に入りに保存されました")
-                    
-                }catch{
-                    //エラーが出た時に行う処理を書いておく場所
-                    print(error, #function)
-                }
+            if( fetchResults.count != 0 ) {
+                isFavorite = true
+            }
+            else {
+                isFavorite = false
             }
         }catch{
             print(error, #function)
         }
+
+        if isFavorite {
+            favoriteButton.setImage(UIImage(named: "Favorites_icon_done.png"), for: .normal)
+        }
+        else {
+            favoriteButton.setImage(UIImage(named: "Favorites_icon.png"), for: .normal)
+        }
+    }
+    
+    func deleteOne(id: Int){
+        print(#function,id)
+
     }
     
     /*

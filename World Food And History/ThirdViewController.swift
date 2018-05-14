@@ -12,15 +12,16 @@ import CoreData
 
 class ThirdViewController: UIViewController,UITableViewDelegate,UITableViewDataSource {
 
-    var selectedDic:NSDictionary!
-    var selectedKey:String!
+    
+
     
     @IBOutlet weak var favoriteTableView: UITableView!
 
     //plistの配列を一時保存するメンバ変数
     var selectHototelDetailDic = NSDictionary()
-    //toDitailセグエ用　plistの配列を保存するメンバ変数
-    var getKeyDic = NSDictionary()
+    //toDetailセグエ用　plistの配列を保存するメンバ変数
+    var selectedDic:NSDictionary!
+
     
     //Favorite（内容を）格納する配列TabelViewを準備
     var contentCuisine:[NSDictionary] = []
@@ -140,7 +141,7 @@ class ThirdViewController: UIViewController,UITableViewDelegate,UITableViewDataS
         //表示したい文字の設定（セルの中には文字、画像も入る）
         let dic = contentCuisine[indexPath.row]
         
-        cell.hotelLabel.text = dic["cuisine"] as! String
+        cell.hotelLabel.text = dic["cuisine"] as? String
         //文字を設定したセルを返す
         return cell
     }
@@ -158,18 +159,10 @@ class ThirdViewController: UIViewController,UITableViewDelegate,UITableViewDataS
         if id != 0 {
             //Key(ディクショナリー型で)Plistから取り出し
             let dic = readPlist(key:key)
-            print(dic)
             selectedDic = dic!
-            selectedKey = key
             //セグエのidentifierを指定して、画面移動
             performSegue(withIdentifier: "toDetail", sender: self)
-//            moveDetailView(keyDic: dic!, key: key)
-            //セグエのidentifierを指定して、画面移動
-//            let storyboard = UIStoryboard(name: "DetailFoodView", bundle: nil) // storyboardのインスタンスを名前指定で取得
-//            let nextVC = storyboard.instantiateInitialViewController() as! UIViewController // storyboard内で"is initial"に指定されているViewControllerを取得
-//
-//            self.present(nextVC, animated: true, completion: nil)
-//
+
         }
         
 
@@ -184,9 +177,7 @@ class ThirdViewController: UIViewController,UITableViewDelegate,UITableViewDataS
         let dvc = segue.destination as! DetailFoodView
         //次の画面のプロパティにタップされたセルのkeyを渡す
         dvc.getFoodDic = self.selectedDic
-        dvc.key = self.selectedKey
 
-        print("②セグエを使って画面移動する時発動")
 
 
     }
