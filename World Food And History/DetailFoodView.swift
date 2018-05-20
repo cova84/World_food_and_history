@@ -13,6 +13,7 @@ class DetailFoodView: UIViewController
     
 {
 
+    // MARK:- Varible
     @IBOutlet weak var detailScrollView: UIScrollView!
     
     // 画面表示用
@@ -35,8 +36,7 @@ class DetailFoodView: UIViewController
     
     @IBOutlet weak var header4Label: UILabel!
     
-    
-    
+
     
     // データ受け取り用
     var getFoodDic:NSDictionary!
@@ -49,6 +49,8 @@ class DetailFoodView: UIViewController
     // Gesture
     var tapLinkRecognizer:UITapGestureRecognizer!
     
+    // MARK: - display
+
     override func loadView() {
 
         if let view = UINib(nibName: "DetailFoodView", bundle: nil).instantiate(withOwner: self, options: nil).first as? UIView {
@@ -64,8 +66,21 @@ class DetailFoodView: UIViewController
 
         //plistから読み出し処理
         image1ImageView.image = UIImage(named:"\(id)_01")
-        image2ImageView.image = UIImage(named: "\(id)_02")
-        image3ImageView.image = UIImage(named: "\(id)_03")
+        if UIImage(named: "\(id)_02") == nil {
+            image2ImageView.isHidden = true
+        }
+        else {
+            image2ImageView.image = UIImage(named: "\(id)_02")
+            
+        }
+        if UIImage(named: "\(id)_03") == nil {
+            image3ImageView.isHidden = true
+        }
+        else {
+            image3ImageView.image = UIImage(named: "\(id)_03")
+
+        }
+        
         
         food_name_Label.text = getFoodDic["food_name"] as? String
         areaLabel.text = "発祥地域 \(getFoodDic["area"] as! String)"
@@ -96,33 +111,12 @@ class DetailFoodView: UIViewController
         checkFavoriteCoreData()
         print(isFavorite)
         if isFavorite {
-                favoriteButton.setImage(UIImage(named: "Favorites_icon_done.png"), for: .normal)
+                favoriteButton.setImage(UIImage(named: "Favorites_Detail.png"), for: .normal)
         }
         
 
     }
 
-    // Header4は空のときは表示しない
-    func settingHeader4Label() {
-        guard let header4Text = getFoodDic["header4"] as? String
-        
-            else {
-                header4Label.isHidden = true
-                print("else側")
-                return
-        }
-        if header4Text == "" {
-            print("空白側")
-            header4Label.isHidden = true
-            return
-        }
-        print("普通側")
-        // ラベルにアンダーバーをつけるためにatrributedTextに代入
-        header4Label.attributedText = NSAttributedString(string: header4Text, attributes:
-            [.underlineStyle: NSUnderlineStyle.styleSingle.rawValue])
-        header4Label.frame.size.height += 4
-    }
-    
 
     override func viewDidLayoutSubviews() {
 
@@ -133,7 +127,13 @@ class DetailFoodView: UIViewController
         header4Label.addGestureRecognizer(tapLinkRecognizer)
 //        tapLinkRecognizer.delegate = self
     }
+
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
+    }
     
+    // MARK; - Gesture
     @IBAction func tabFavorite(_ sender: UIButton) {
         saveOrDeleteFavorite()
     }
@@ -142,10 +142,6 @@ class DetailFoodView: UIViewController
         tapURL()
     }
     
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
     
     func gestureRecognizerShouldBegin(_ gestureRecognizer: UIGestureRecognizer) -> Bool {
         return true
@@ -158,7 +154,8 @@ class DetailFoodView: UIViewController
         UIApplication.shared.open(url!, completionHandler: nil)
         
     }
-    
+
+    // MARK: - CoreData
     func saveOrDeleteFavorite () {
         let id = getFoodDic["id"] as! Int
         //AppDelegateを使う用意をしておく（インスタンス化）
@@ -193,7 +190,7 @@ class DetailFoodView: UIViewController
             }
             
             isFavorite = true
-            favoriteButton.setImage(UIImage(named: "Favorites_icon_done.png"), for: .normal)
+            favoriteButton.setImage(UIImage(named: "Favorites_Detail.png"), for: .normal)
         }
         else {  //入っているので削除
             //どのエンティティからデータを取得するか設定（Favoriteエンティティ）
@@ -217,7 +214,7 @@ class DetailFoodView: UIViewController
             }
             
             isFavorite = false
-            favoriteButton.setImage(UIImage(named: "Favorites_icon.png"), for: .normal)
+            favoriteButton.setImage(UIImage(named: "Favorites_Empty_Detail.png"), for: .normal)
 
             
         }
@@ -253,17 +250,37 @@ class DetailFoodView: UIViewController
         }
 
         if isFavorite {
-            favoriteButton.setImage(UIImage(named: "Favorites_icon_done.png"), for: .normal)
+            favoriteButton.setImage(UIImage(named: "Favorites_Detail.png"), for: .normal)
         }
         else {
-            favoriteButton.setImage(UIImage(named: "Favorites_icon.png"), for: .normal)
+            favoriteButton.setImage(UIImage(named: "Favorites_Empty_Detail.png"), for: .normal)
         }
     }
     
-    func deleteOne(id: Int){
-        print(#function,id)
-
+    // MARK:- custom function
+    
+    // Header4は空のときは表示しない
+    func settingHeader4Label() {
+        guard let header4Text = getFoodDic["header4"] as? String
+            
+            else {
+                header4Label.isHidden = true
+                print("else側")
+                return
+        }
+        if header4Text == "" {
+            print("空白側")
+            header4Label.isHidden = true
+            return
+        }
+        print("普通側")
+        // ラベルにアンダーバーをつけるためにatrributedTextに代入
+        header4Label.attributedText = NSAttributedString(string: header4Text, attributes:
+            [.underlineStyle: NSUnderlineStyle.styleSingle.rawValue])
+        header4Label.frame.size.height += 4
     }
+    
+
     
     /*
     // MARK: - Navigation
