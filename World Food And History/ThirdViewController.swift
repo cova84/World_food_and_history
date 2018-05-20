@@ -14,11 +14,10 @@ class ThirdViewController: UIViewController,UITableViewDelegate,UITableViewDataS
 
     
 
+    @IBOutlet weak var titleLabel: UILabel!
     
     @IBOutlet weak var favoriteTableView: UITableView!
 
-    //plistの配列を一時保存するメンバ変数
-    var selectHototelDetailDic = NSDictionary()
     //toDetailセグエ用　plistの配列を保存するメンバ変数
     var selectedDic:NSDictionary!
 
@@ -65,10 +64,13 @@ class ThirdViewController: UIViewController,UITableViewDelegate,UITableViewDataS
             }
         }catch{
         }
+        
+        favoriteTableView.isUserInteractionEnabled = true
         //登録が一つも無かったら表示するようのダミー定義
         if contentCuisine.count == 0 {
             let dummy = ["id":0,"cuisine":"お気に入りの登録がありません","country":""] as [String : Any]
             contentCuisine.append(dummy as NSDictionary)
+            favoriteTableView.isUserInteractionEnabled = false
         }
         favoriteTableView.reloadData()
     }
@@ -91,8 +93,7 @@ class ThirdViewController: UIViewController,UITableViewDelegate,UITableViewDataS
         //present(alert, animated: true, completion: nil)
         present(alert, animated: true, completion: {() -> Void in print("選択画面が表示されました。")})
         
-        
-        
+        alert.addAction(UIAlertAction(title: "キャンセル", style: .default, handler: nil))
         //アラートにOKボタンを追加
         //handler : OKボタンが押された時に、行いたい処理に指定する場所
         //alert.addAction(UIAlertAction(title: "OPPAI", style: .default, handler: nil))
@@ -133,7 +134,6 @@ class ThirdViewController: UIViewController,UITableViewDelegate,UITableViewDataS
     }
     
     
-    
     //リストに表示する文字列を決定し、表示（cellForRowAtを検索）
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         //文字列を表示するセルの取得（セルの再利用）
@@ -141,7 +141,7 @@ class ThirdViewController: UIViewController,UITableViewDelegate,UITableViewDataS
         //表示したい文字の設定（セルの中には文字、画像も入る）
         let dic = contentCuisine[indexPath.row]
         
-        cell.hotelLabel.text = dic["cuisine"] as? String
+        cell.cuisineLabel.text = dic["cuisine"] as? String
         //文字を設定したセルを返す
         return cell
     }
@@ -151,19 +151,19 @@ class ThirdViewController: UIViewController,UITableViewDelegate,UITableViewDataS
     //セルがタップされた時のイベント
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         //okayumemo Favoriteデータから読出ししたデータを取り出し
-        let hotelDic = contentCuisine[indexPath.row]
-        let id = hotelDic["id"] as! Int16
+        let cuisineDic = contentCuisine[indexPath.row]
+        let id = cuisineDic["id"] as! Int16
         let key:String = "\(id)"
         
         // 0の時はダミーなのでセグエ発動しなくて良い
-        if id != 0 {
+//        if id != 0 {
             //Key(ディクショナリー型で)Plistから取り出し
             let dic = readPlist(key:key)
             selectedDic = dic!
             //セグエのidentifierを指定して、画面移動
             performSegue(withIdentifier: "toDetail", sender: self)
 
-        }
+//        }
         
 
         
@@ -190,13 +190,14 @@ class ThirdViewController: UIViewController,UITableViewDelegate,UITableViewDataS
         let deleteButton: UITableViewRowAction = UITableViewRowAction(style: .normal, title: "Delete") { (action, index) -> Void in
             print(index,self.contentCuisine)
             let id = self.contentCuisine[index.row]["id"] as! Int
+
             self.contentCuisine.remove(at: index.row)
             self.favoriteTableView.deleteRows(at: [index], with: .automatic)
             self.deleteOne(id: id,index: index)
-            
-        }
-        deleteButton.backgroundColor = UIColor.blue
         
+        }
+        deleteButton.backgroundColor = UIColor.red
+
         return [deleteButton]
     }
     
