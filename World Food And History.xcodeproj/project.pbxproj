@@ -7,12 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B21D78A220C8C61F004571AF /* DetailFoodView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B21D78A020C8C61E004571AF /* DetailFoodView.xib */; };
+		B21D78A320C8C61F004571AF /* DetailFoodView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B21D78A120C8C61F004571AF /* DetailFoodView.swift */; };
 		B2D63A762094A7190025C7EA /* CuisineCustomCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B2D63A752094A7190025C7EA /* CuisineCustomCell.xib */; };
 		B2D63A782094CD3C0025C7EA /* CuisineCustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2D63A772094CD3C0025C7EA /* CuisineCustomCell.swift */; };
-		B2E7BFFC20A653F100A11EC1 /* DetailFoodView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2E7BFFA20A653F100A11EC1 /* DetailFoodView.swift */; };
 		B2E7BFFE20A65A1C00A11EC1 /* custom.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2E7BFFD20A65A1C00A11EC1 /* custom.swift */; };
 		B2E7C00020A65ED200A11EC1 /* DetailFoodView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B2E7BFFF20A65ED200A11EC1 /* DetailFoodView.storyboard */; };
-		B2E7C00120A695E400A11EC1 /* DetailFoodView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B2E7BFFB20A653F100A11EC1 /* DetailFoodView.xib */; };
 		B2E7C00320A6AB7C00A11EC1 /* food_list_Detail.plist in Resources */ = {isa = PBXBuildFile; fileRef = B2E7C00220A6AB7B00A11EC1 /* food_list_Detail.plist */; };
 		B2FA3D3D20B0231C00136603 /* Contacts_image.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B2FA3D3C20B0231C00136603 /* Contacts_image.jpg */; };
 		D1159DFD1FE3537B00530826 /* customCellTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1159DF51FE3537B00530826 /* customCellTableViewCell.swift */; };
@@ -79,10 +79,10 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		B21D78A020C8C61E004571AF /* DetailFoodView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DetailFoodView.xib; sourceTree = "<group>"; };
+		B21D78A120C8C61F004571AF /* DetailFoodView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailFoodView.swift; sourceTree = "<group>"; };
 		B2D63A752094A7190025C7EA /* CuisineCustomCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CuisineCustomCell.xib; sourceTree = "<group>"; };
 		B2D63A772094CD3C0025C7EA /* CuisineCustomCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CuisineCustomCell.swift; sourceTree = "<group>"; };
-		B2E7BFFA20A653F100A11EC1 /* DetailFoodView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DetailFoodView.swift; path = "/Users/yuka/Documents/mySwift/co-/World_food_and_history/World Food And History/DetailFoodView.swift"; sourceTree = "<absolute>"; };
-		B2E7BFFB20A653F100A11EC1 /* DetailFoodView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = DetailFoodView.xib; path = "/Users/yuka/Documents/mySwift/co-/World_food_and_history/World Food And History/DetailFoodView.xib"; sourceTree = "<absolute>"; };
 		B2E7BFFD20A65A1C00A11EC1 /* custom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = custom.swift; sourceTree = "<group>"; };
 		B2E7BFFF20A65ED200A11EC1 /* DetailFoodView.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = DetailFoodView.storyboard; sourceTree = "<group>"; };
 		B2E7C00220A6AB7B00A11EC1 /* food_list_Detail.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = food_list_Detail.plist; sourceTree = SOURCE_ROOT; };
@@ -180,9 +180,9 @@
 				D1D23C2F1FBCB426009D3895 /* SecondViewController.swift */,
 				D1D23C5B1FBCB867009D3895 /* ThirdViewController.swift */,
 				D1D23C5D1FBCB882009D3895 /* FourthViewController.swift */,
-				B2E7BFFA20A653F100A11EC1 /* DetailFoodView.swift */,
+				B21D78A120C8C61F004571AF /* DetailFoodView.swift */,
+				B21D78A020C8C61E004571AF /* DetailFoodView.xib */,
 				B2E7BFFD20A65A1C00A11EC1 /* custom.swift */,
-				B2E7BFFB20A653F100A11EC1 /* DetailFoodView.xib */,
 				B2E7BFFF20A65ED200A11EC1 /* DetailFoodView.storyboard */,
 				D117090E1FBE997500F4B3E4 /* Main.storyboard */,
 				D1FE761B1FC7C471000786C3 /* LaunchScreen.storyboard */,
@@ -361,7 +361,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B2E7C00120A695E400A11EC1 /* DetailFoodView.xib in Resources */,
 				D17F9F8A1FE58ED100C3E753 /* MailCell_W.xib in Resources */,
 				D1D48CB11FE6448A008737FF /* AreaCustomCell.xib in Resources */,
 				D13C3BC21FE0C6A500A76A75 /* infoLink.jpg in Resources */,
@@ -377,6 +376,7 @@
 				D11709101FBE997500F4B3E4 /* Main.storyboard in Resources */,
 				D1159E031FE3537B00530826 /* URLCell_W.xib in Resources */,
 				D1159E041FE3537B00530826 /* DetailViewCell_G.xib in Resources */,
+				B21D78A220C8C61F004571AF /* DetailFoodView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -502,6 +502,7 @@
 			files = (
 				D15A4EAE1FE670EB00651282 /* CountryCustomCell.swift in Sources */,
 				D1D48CB01FE6448A008737FF /* AreaCustomCell.swift in Sources */,
+				B21D78A320C8C61F004571AF /* DetailFoodView.swift in Sources */,
 				D16002E11FDF5E2F006A7514 /* Favorite+CoreDataProperties.swift in Sources */,
 				D1D23C301FBCB426009D3895 /* SecondViewController.swift in Sources */,
 				D1177A4B1FD6D775002EEEBE /* GetDicMap.swift in Sources */,
@@ -521,7 +522,6 @@
 				D1D23C2E1FBCB426009D3895 /* FirstViewController.swift in Sources */,
 				D1159E021FE3537B00530826 /* URLCell_W.swift in Sources */,
 				D1D23C5E1FBCB882009D3895 /* FourthViewController.swift in Sources */,
-				B2E7BFFC20A653F100A11EC1 /* DetailFoodView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

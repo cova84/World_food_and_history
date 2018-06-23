@@ -104,7 +104,7 @@ class SecondViewController: UIViewController,MKMapViewDelegate {
             pinView = MKPinAnnotationView(annotation: annotation, reuseIdentifier: reuseId)
             //落下アクション
             pinView?.animatesDrop = true
-            pinView?.isDraggable = true
+//            pinView?.isDraggable = true
             
             //ピンを画像に変更
             //MKPinAnnotationViewをMKAnnotationViewに変えると画像に変更可能

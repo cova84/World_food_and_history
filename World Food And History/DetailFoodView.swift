@@ -147,12 +147,17 @@ class DetailFoodView: UIViewController
         return true
     }
     
+    func openMapOrNot() {
+        
+        let alert = UIAlertController(title: "", message: "", preferredStyle: .actionSheet)
+//        alert.addAction(UIAlertAction(title: "Google Mapで開く", style: <#T##UIAlertActionStyle#>, handler: <#T##((UIAlertAction) -> Void)?##((UIAlertAction) -> Void)?##(UIAlertAction) -> Void#>))
+    }
 
     @objc func tapURL () {
         let url = URL(string: getFoodDic["url"]! as! String)
 //        UIApplication.shared.openURL(url! as URL)
         UIApplication.shared.open(url!, completionHandler: nil)
-        
+
     }
 
     // MARK: - CoreData

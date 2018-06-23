@@ -1,21 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
-    <device id="retina4_0" orientation="portrait">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
-    <customFonts key="customFonts">
-        <array key="Futura.ttc">
-            <string>Futura-Bold</string>
-            <string>Futura-Medium</string>
-        </array>
-    </customFonts>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="DetailFoodView" customModule="World_Food_And_History" customModuleProvider="target">
             <connections>
@@ -39,80 +33,80 @@
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
-            <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ugC-1s-res">
-                    <rect key="frame" x="0.0" y="20" width="320" height="556"/>
+                    <rect key="frame" x="0.0" y="20" width="375" height="655"/>
                     <subviews>
                         <stackView opaque="NO" contentMode="center" axis="vertical" alignment="center" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="5A7-hB-23i" userLabel="Detail Stack View">
-                            <rect key="frame" x="0.0" y="0.0" width="320" height="1182"/>
+                            <rect key="frame" x="0.0" y="0.0" width="375" height="1389.5"/>
                             <subviews>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Osp-7r-EHf">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="76"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="76"/>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </view>
                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="koZ-gA-usY" userLabel="Image View1">
-                                    <rect key="frame" x="0.0" y="80" width="320" height="213"/>
+                                    <rect key="frame" x="0.0" y="80" width="375" height="249.5"/>
                                     <constraints>
                                         <constraint firstAttribute="width" secondItem="koZ-gA-usY" secondAttribute="height" multiplier="320:213" id="UGH-nr-yxY"/>
                                     </constraints>
                                 </imageView>
                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" text="ポイントは「酸味」と「マントウ」!?" lineBreakMode="tailTruncation" numberOfLines="2" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="XUi-bb-UMZ">
-                                    <rect key="frame" x="16" y="193" width="320" height="52"/>
+                                    <rect key="frame" x="16" y="333.5" width="343" height="26"/>
                                     <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                                     <fontDescription key="fontDescription" name="Futura-Bold" family="Futura" pointSize="20"/>
                                     <color key="textColor" red="0.0" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" text="シンガポール名物「チリクラブ」。大きなカニに甘辛いチリソースをかけた、シンガポール生まれのメニューです。シンガポールに行くと、観光客向けからローカル向けまで多くの店で提供されていて、どこに行こうか迷っちゃう！" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="MGz-e9-MNa" userLabel="Text View1">
-                                    <rect key="frame" x="16" y="245" width="320" height="109"/>
+                                    <rect key="frame" x="16" y="363.5" width="343" height="109"/>
                                     <color key="textColor" red="0.0" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                     <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="14"/>
                                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                 </textView>
                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="8sd-a2-e2O" userLabel="Image View2">
-                                    <rect key="frame" x="0.0" y="354" width="320" height="213"/>
+                                    <rect key="frame" x="0.0" y="476.5" width="375" height="250"/>
                                     <constraints>
                                         <constraint firstAttribute="width" secondItem="8sd-a2-e2O" secondAttribute="height" multiplier="320:213" id="KN5-BO-flY"/>
                                     </constraints>
                                 </imageView>
                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" text="チリクラブとは" lineBreakMode="tailTruncation" numberOfLines="2" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="KgK-td-P49">
-                                    <rect key="frame" x="16" y="567" width="320" height="26"/>
+                                    <rect key="frame" x="16" y="730.5" width="343" height="26"/>
                                     <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                                     <fontDescription key="fontDescription" name="Futura-Bold" family="Futura" pointSize="20"/>
                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="nHa-Y7-Ye9" userLabel="Text View2">
-                                    <rect key="frame" x="16" y="567" width="320" height="165"/>
+                                    <rect key="frame" x="16" y="760.5" width="343" height="146.5"/>
                                     <string key="text">ドウマンガニ、スリランカクラブ、マッドクラブといったカニに、チリやトマト（ケチャップ）、卵、酢などが入ったソースをかけたのがチリクラブ。エビチリのカニ版といったところでしょうか。その歴史は以外と浅く、考案されたのは1950年代。はじめはチリとトマトソースを合わせただけのソースだったのが、次第に現在のような形式に</string>
                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                     <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="14"/>
                                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                 </textView>
                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="62p-YU-Zgh" userLabel="Image View3">
-                                    <rect key="frame" x="0.0" y="732" width="320" height="213"/>
+                                    <rect key="frame" x="0.0" y="911" width="375" height="249.5"/>
                                     <constraints>
                                         <constraint firstAttribute="width" secondItem="62p-YU-Zgh" secondAttribute="height" multiplier="320:213" id="Tju-ke-R6E"/>
                                     </constraints>
                                 </imageView>
                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" text="LONG BEACH Seafood Restaurant" lineBreakMode="tailTruncation" numberOfLines="2" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="IO5-40-9ta">
-                                    <rect key="frame" x="16" y="945" width="320" height="52"/>
+                                    <rect key="frame" x="16" y="1164.5" width="343" height="52"/>
                                     <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                                     <fontDescription key="fontDescription" name="Futura-Bold" family="Futura" pointSize="20"/>
                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="RSQ-kX-bYf" userLabel="Text View3">
-                                    <rect key="frame" x="16" y="997" width="320" height="165"/>
+                                    <rect key="frame" x="16" y="1220.5" width="343" height="146.5"/>
                                     <string key="text">1軒目は、LONG BEACH Seafood Restaurant（ロングビーチ・シーフード・レストラン）。ブラックペッパーで味付けした「Black Pepper Crab（ブラックペッパークラブ）」発祥の店といわれる有名な海鮮レストランで、多くの観光ガイドにも掲載されています。私は、市街地と空港の間、イーストコートと呼ばれるエリアの店舗を訪れました。</string>
                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                     <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="14"/>
                                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                 </textView>
                                 <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yH6-Ki-jT8">
-                                    <rect key="frame" x="16" y="1162" width="320" height="18.5"/>
+                                    <rect key="frame" x="16" y="1371" width="343" height="18.5"/>
                                     <gestureRecognizers/>
                                     <attributedString key="attributedText">
                                         <fragment content="Label">
@@ -163,13 +157,13 @@
                     </constraints>
                 </scrollView>
                 <view autoresizesSubviews="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XWs-ZO-bZB" userLabel="TitleView">
-                    <rect key="frame" x="0.0" y="20" width="320" height="80"/>
+                    <rect key="frame" x="0.0" y="20" width="375" height="80"/>
                     <subviews>
-                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" misplaced="YES" text="Food" lineBreakMode="tailTruncation" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="CTV-3a-dND">
-                            <rect key="frame" x="16" y="4" width="228" height="42"/>
+                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" text="Food" lineBreakMode="tailTruncation" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="CTV-3a-dND">
+                            <rect key="frame" x="16" y="16" width="283" height="32"/>
                             <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                             <constraints>
-                                <constraint firstAttribute="height" constant="42" id="PdG-HT-FUl"/>
+                                <constraint firstAttribute="height" constant="32" id="PdG-HT-FUl"/>
                             </constraints>
                             <fontDescription key="fontDescription" name="Futura-Bold" family="Futura" pointSize="32"/>
                             <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -185,11 +179,11 @@
                             <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <stackView opaque="NO" contentMode="center" horizontalCompressionResistancePriority="100" verticalCompressionResistancePriority="100" misplaced="YES" axis="vertical" distribution="fillProportionally" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="OOx-Ow-VWL" userLabel="FavoriteStack View">
-                            <rect key="frame" x="252" y="16" width="60" height="54"/>
+                        <stackView opaque="NO" contentMode="center" horizontalCompressionResistancePriority="100" verticalCompressionResistancePriority="100" axis="vertical" distribution="fillProportionally" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="OOx-Ow-VWL" userLabel="FavoriteStack View">
+                            <rect key="frame" x="299" y="16" width="60" height="54"/>
                             <subviews>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="out-pH-nfM">
-                                    <rect key="frame" x="0.0" y="0.0" width="40" height="40"/>
+                                    <rect key="frame" x="10" y="0.0" width="40" height="40"/>
                                     <constraints>
                                         <constraint firstAttribute="width" secondItem="out-pH-nfM" secondAttribute="height" multiplier="1:1" id="o8P-HY-FqT"/>
                                     </constraints>
@@ -218,15 +212,14 @@
                     <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.75" colorSpace="calibratedRGB"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="80" id="1Lz-FI-TM9"/>
-                        <constraint firstItem="CTV-3a-dND" firstAttribute="top" secondItem="XWs-ZO-bZB" secondAttribute="top" constant="4" id="38c-6d-ZcK"/>
+                        <constraint firstItem="CTV-3a-dND" firstAttribute="top" secondItem="XWs-ZO-bZB" secondAttribute="top" constant="16" id="38c-6d-ZcK"/>
                         <constraint firstAttribute="bottom" secondItem="KYA-Og-JVY" secondAttribute="bottom" constant="4" id="6g0-ps-g9x"/>
                         <constraint firstItem="KYA-Og-JVY" firstAttribute="leading" secondItem="CTV-3a-dND" secondAttribute="leading" id="Hby-jx-ErL"/>
                         <constraint firstItem="OOx-Ow-VWL" firstAttribute="top" secondItem="XWs-ZO-bZB" secondAttribute="top" constant="16" id="HzY-F6-4XS"/>
                         <constraint firstAttribute="bottom" secondItem="OOx-Ow-VWL" secondAttribute="bottom" constant="10" id="RoX-0a-GkY"/>
-                        <constraint firstItem="OOx-Ow-VWL" firstAttribute="leading" secondItem="CTV-3a-dND" secondAttribute="trailing" constant="8" id="Uhj-XS-DuN"/>
                         <constraint firstItem="CTV-3a-dND" firstAttribute="leading" secondItem="XWs-ZO-bZB" secondAttribute="leading" constant="16" id="cQc-Fw-76I"/>
                         <constraint firstItem="CTV-3a-dND" firstAttribute="width" secondItem="XWs-ZO-bZB" secondAttribute="width" constant="-92" id="gZi-xk-vBS"/>
-                        <constraint firstAttribute="trailing" secondItem="OOx-Ow-VWL" secondAttribute="trailing" constant="8" id="lhn-Be-810"/>
+                        <constraint firstAttribute="trailing" secondItem="OOx-Ow-VWL" secondAttribute="trailing" constant="16" id="lhn-Be-810"/>
                     </constraints>
                 </view>
             </subviews>
