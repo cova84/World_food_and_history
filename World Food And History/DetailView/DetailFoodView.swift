@@ -10,34 +10,35 @@ import CoreData
 
 class DetailFoodView: UIViewController
 //    ,UIGestureRecognizerDelegate
-    
+
 {
 
     // MARK:- Varible
     @IBOutlet weak var detailScrollView: UIScrollView!
-    
+
     // 画面表示用
     @IBOutlet weak var food_name_Label: UILabel!
     @IBOutlet weak var areaLabel: UILabel!
     @IBOutlet weak var favoriteStackView: UIStackView!
-    
+
     @IBOutlet weak var image1ImageView: UIImageView!
     @IBOutlet weak var header1Label: UILabel!
     @IBOutlet weak var legend1TextView: UITextView!
-    
+
     @IBOutlet weak var image2ImageView: UIImageView!
     @IBOutlet weak var header2Label: UILabel!
-    
+
     @IBOutlet weak var legend2TextView: UITextView!
-    
+
     @IBOutlet weak var image3ImageView: UIImageView!
     @IBOutlet weak var header3Label: UILabel!
     @IBOutlet weak var legend3TextView: UITextView!
-    
+
     @IBOutlet weak var header4Label: UILabel!
+
+    @IBOutlet weak var googleMapLinkLabel: UILabel!
     
 
-    
     // データ受け取り用
     var getFoodDic:NSDictionary!
 
@@ -45,10 +46,11 @@ class DetailFoodView: UIViewController
     @IBOutlet weak var favoriteButton: UIButton!
     var isFavorite:Bool = false
 
-    
+
     // Gesture
-    var tapLinkRecognizer:UITapGestureRecognizer!
-    
+    var tapShopLinkRecognizer:UITapGestureRecognizer!
+    var tapMapLinkRecognizer:UITapGestureRecognizer!
+
     // MARK: - display
 
     override func loadView() {
@@ -57,7 +59,7 @@ class DetailFoodView: UIViewController
             self.view = view
         }
     }
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -88,7 +90,7 @@ class DetailFoodView: UIViewController
         header2Label.text = getFoodDic["header2"] as? String
         header3Label.text = getFoodDic["header3"] as? String
         settingHeader4Label()
- 
+        settingMapLinkLabel()
         
         legend1TextView.text = getFoodDic["legend1"] as? String
         legend2TextView.text = getFoodDic["legend2"] as? String
@@ -107,9 +109,7 @@ class DetailFoodView: UIViewController
         legend2TextView.frame.size.height += 4
 
 
-        print(isFavorite)
         checkFavoriteCoreData()
-        print(isFavorite)
         if isFavorite {
                 favoriteButton.setImage(UIImage(named: "Favorites_Detail.png"), for: .normal)
         }
@@ -121,41 +121,30 @@ class DetailFoodView: UIViewController
     override func viewDidLayoutSubviews() {
 
     }
-    
+
     override func viewDidAppear(_ animated: Bool) {
-        tapLinkRecognizer = UITapGestureRecognizer(target: self, action: #selector(tapURL))
-        header4Label.addGestureRecognizer(tapLinkRecognizer)
-//        tapLinkRecognizer.delegate = self
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
-    // MARK; - Gesture
+
+    // MARK: - Gesture
     @IBAction func tabFavorite(_ sender: UIButton) {
         saveOrDeleteFavorite()
     }
-    
-    @IBAction func tapHeader4(_ sender: UITapGestureRecognizer) {
-        tapURL()
-    }
-    
-    
+
+
     func gestureRecognizerShouldBegin(_ gestureRecognizer: UIGestureRecognizer) -> Bool {
         return true
     }
-    
-    func openMapOrNot() {
-        
-        let alert = UIAlertController(title: "", message: "", preferredStyle: .actionSheet)
-//        alert.addAction(UIAlertAction(title: "Google Mapで開く", style: <#T##UIAlertActionStyle#>, handler: <#T##((UIAlertAction) -> Void)?##((UIAlertAction) -> Void)?##(UIAlertAction) -> Void#>))
-    }
 
-    @objc func tapURL () {
+
+
+    @objc func goToShopLink () {
         let url = URL(string: getFoodDic["url"]! as! String)
-//        UIApplication.shared.openURL(url! as URL)
+    //        UIApplication.shared.openURL(url! as URL)
         UIApplication.shared.open(url!, completionHandler: nil)
 
     }
@@ -225,7 +214,7 @@ class DetailFoodView: UIViewController
         }
 
     }
-    
+
     func checkFavoriteCoreData() {
         //AppDelegateを使う用意をしておく（インスタンス化）
         let appDelegate:AppDelegate = UIApplication.shared.delegate as! AppDelegate
@@ -261,11 +250,13 @@ class DetailFoodView: UIViewController
             favoriteButton.setImage(UIImage(named: "Favorites_Empty_Detail.png"), for: .normal)
         }
     }
-    
+
     // MARK:- custom function
-    
+
     // Header4は空のときは表示しない
     func settingHeader4Label() {
+        tapShopLinkRecognizer = UITapGestureRecognizer(target: self, action: #selector(goToShopLink))
+        header4Label.addGestureRecognizer(tapShopLinkRecognizer)
         guard let header4Text = getFoodDic["header4"] as? String
             
             else {
@@ -280,13 +271,38 @@ class DetailFoodView: UIViewController
         }
         print("普通側")
         // ラベルにアンダーバーをつけるためにatrributedTextに代入
-        header4Label.attributedText = NSAttributedString(string: header4Text, attributes:
+        header4Label.attributedText = NSAttributedString(string: "おすすめ店舗の紹介リンク", attributes:
             [.underlineStyle: NSUnderlineStyle.styleSingle.rawValue])
         header4Label.frame.size.height += 4
     }
+
+    // GoogleMapへのリンクは空のときは表示しない
+    func settingMapLinkLabel() {
+        
+        guard let mapLongitude = getFoodDic["longitude"] as? String,
+              let mapLatitude = getFoodDic["latitude"] as? String else {
+                googleMapLinkLabel.isHidden = true
+                return
+        }
+        
+        if mapLongitude == "" || mapLatitude == "" {
+            print("緯度経度がどちらか空白側")
+            googleMapLinkLabel.isHidden = true
+            return
+        }
+        print("普通側")
+        // ラベルにアンダーバーをつけるためにatrributedTextに代入
+        googleMapLinkLabel.attributedText = NSAttributedString(string: "店舗の場所をGoogle Mapで表示", attributes:
+            [.underlineStyle: NSUnderlineStyle.styleSingle.rawValue])
+        googleMapLinkLabel.frame.size.height += 4
+        tapMapLinkRecognizer = UITapGestureRecognizer(target: self, action: #selector(openMapOrNot))
+        googleMapLinkLabel.addGestureRecognizer(tapMapLinkRecognizer)
+
+    }
+    
     
 
-    
+
     /*
     // MARK: - Navigation
 
@@ -297,4 +313,49 @@ class DetailFoodView: UIViewController
     }
     */
 
+}
+
+
+extension DetailFoodView {
+    @objc func openMapOrNot() {
+
+        let alert = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+        alert.addAction(UIAlertAction(title: "Google Map で開く", style: .default, handler: { (action) in
+            self.goGoogleMap(longitude: self.getFoodDic["longitude"] as Any, latitude: self.getFoodDic["latitude"] as Any)
+        }))
+        alert.addAction(UIAlertAction(title: "Google Map のオフライン設定方法", style: .default, handler: { (action) in
+            self.moveExplainView()
+            
+        }))
+        alert.addAction(UIAlertAction(title: "キャンセル", style: .cancel, handler: nil))
+
+
+        present(alert, animated: true, completion:nil)
+    }
+    
+    func goGoogleMap (longitude:Any,latitude:Any) {
+        let longitude = longitude as! String
+        let latitude = latitude as! String
+
+        if (UIApplication.shared.canOpenURL(URL(string:"comgooglemaps://")!)) {
+
+            UIApplication.shared.open(URL(string:
+            "comgooglemaps-x-callback://?q=" + latitude + "," + longitude)!, completionHandler: nil)
+
+        } else {
+            UIApplication.shared.open(URL(string:
+            "https://maps.google.com/maps?q=" + latitude + "," + longitude + "&views=normal,traffic&z=15")!, completionHandler: nil)
+            print("Can't use comgooglemaps://","https://maps.google.com/maps?q=" + latitude + "," + longitude + "&views=normal,traffic&z=15");
+        }
+    }
+    
+    func moveExplainView() {
+        let storyboard = UIStoryboard(name: "ExplainSaveMap", bundle: nil) // storyboardのインスタンスを名前指定で取得
+        let nextVC = storyboard.instantiateInitialViewController() as! ExplainSaveMapVC // storyboard内で"is initial"に指定されているViewControllerを取得
+        self.view.insertSubview(nextVC.view, belowSubview: (self.tabBarController?.tabBar)!)
+        nextVC.modalTransitionStyle = .flipHorizontal
+        
+        self.present(nextVC, animated: true, completion: nil)
+        
+    }
 }

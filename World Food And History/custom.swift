@@ -32,6 +32,15 @@ extension DetailFoodView:StoryboardInstantiable {
     
 }
 
+extension ExplainSaveMapVC:StoryboardInstantiable {
+    static var storyboardName: String {
+        return "ExpalainSaveMap"
+    }
+    
+}
+
+
+
 protocol MovableDetailView {
     static var name: String{ get }
 }
@@ -60,8 +69,6 @@ extension MovableDetailView where Self: UIViewController {
         self.present(nextVC, animated: true, completion: nil)
         
     }
-    
-
 
 }
 
@@ -84,7 +91,6 @@ extension FirstViewController:MovableDetailView {
         }
     }
 
-    
-
 }
+
 
