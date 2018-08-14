@@ -176,9 +176,7 @@ class FirstViewController: UIViewController,UITableViewDelegate,UITableViewDataS
         let dvc = segue.destination as! DetailFoodView
         //次の画面のプロパティにタップされたセルのkeyを渡す
         dvc.getFoodDic = self.selectedDic
-        
-        
-        
+
     }
     
     

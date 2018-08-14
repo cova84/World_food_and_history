@@ -7,8 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4B0BE67DE79E4BB1FE436B9D /* Pods_World_Food_And_HistoryUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C6E152E7B80357180CDD4F81 /* Pods_World_Food_And_HistoryUITests.framework */; };
+		5984E80A54D5C4A2546A38BE /* Pods_World_Food_And_History.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7EF1D3182463630B64175BFE /* Pods_World_Food_And_History.framework */; };
 		B21D78A220C8C61F004571AF /* DetailFoodView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B21D78A020C8C61E004571AF /* DetailFoodView.xib */; };
 		B21D78A320C8C61F004571AF /* DetailFoodView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B21D78A120C8C61F004571AF /* DetailFoodView.swift */; };
+		B2402077211EE61D005A3EFC /* ExplainSaveMap.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B2402076211EE61D005A3EFC /* ExplainSaveMap.storyboard */; };
+		B2402079211EE639005A3EFC /* ExplainSaveMapVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2402078211EE639005A3EFC /* ExplainSaveMapVC.swift */; };
 		B2D63A762094A7190025C7EA /* CuisineCustomCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B2D63A752094A7190025C7EA /* CuisineCustomCell.xib */; };
 		B2D63A782094CD3C0025C7EA /* CuisineCustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2D63A772094CD3C0025C7EA /* CuisineCustomCell.swift */; };
 		B2E7BFFE20A65A1C00A11EC1 /* custom.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2E7BFFD20A65A1C00A11EC1 /* custom.swift */; };
@@ -33,6 +37,7 @@
 		D15A4EB01FE670EB00651282 /* CountryCustomCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D15A4EAC1FE670EB00651282 /* CountryCustomCell.xib */; };
 		D16002E01FDF5E2F006A7514 /* Favorite+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = D16002DE1FDF5E2F006A7514 /* Favorite+CoreDataClass.swift */; };
 		D16002E11FDF5E2F006A7514 /* Favorite+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = D16002DF1FDF5E2F006A7514 /* Favorite+CoreDataProperties.swift */; };
+		D1768350C62523C83356A325 /* Pods_World_Food_And_HistoryTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D0E1B1A96B1C4FAD2C2249F /* Pods_World_Food_And_HistoryTests.framework */; };
 		D17F9F8A1FE58ED100C3E753 /* MailCell_W.xib in Resources */ = {isa = PBXBuildFile; fileRef = D17F9F891FE58ED100C3E753 /* MailCell_W.xib */; };
 		D18F48551FC4722200535881 /* favoriteCoreData.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D18F48531FC4722200535881 /* favoriteCoreData.xcdatamodeld */; };
 		D1C7C7161FE5740F00FD21AC /* MailCell_W.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1C7C7141FE5740F00FD21AC /* MailCell_W.swift */; };
@@ -79,14 +84,23 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		250A3A96AFCB4A7CE0B17431 /* Pods-World Food And History.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-World Food And History.debug.xcconfig"; path = "Pods/Target Support Files/Pods-World Food And History/Pods-World Food And History.debug.xcconfig"; sourceTree = "<group>"; };
+		3C0A4B3930D686DD7F751D64 /* Pods-World Food And HistoryUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-World Food And HistoryUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-World Food And HistoryUITests/Pods-World Food And HistoryUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		4D0E1B1A96B1C4FAD2C2249F /* Pods_World_Food_And_HistoryTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_World_Food_And_HistoryTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		7EF1D3182463630B64175BFE /* Pods_World_Food_And_History.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_World_Food_And_History.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		897BA4EE9366901AB93A4C5C /* Pods-World Food And HistoryTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-World Food And HistoryTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-World Food And HistoryTests/Pods-World Food And HistoryTests.debug.xcconfig"; sourceTree = "<group>"; };
 		B21D78A020C8C61E004571AF /* DetailFoodView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DetailFoodView.xib; sourceTree = "<group>"; };
 		B21D78A120C8C61F004571AF /* DetailFoodView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailFoodView.swift; sourceTree = "<group>"; };
+		B2402076211EE61D005A3EFC /* ExplainSaveMap.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ExplainSaveMap.storyboard; sourceTree = "<group>"; };
+		B2402078211EE639005A3EFC /* ExplainSaveMapVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExplainSaveMapVC.swift; sourceTree = "<group>"; };
 		B2D63A752094A7190025C7EA /* CuisineCustomCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CuisineCustomCell.xib; sourceTree = "<group>"; };
 		B2D63A772094CD3C0025C7EA /* CuisineCustomCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CuisineCustomCell.swift; sourceTree = "<group>"; };
 		B2E7BFFD20A65A1C00A11EC1 /* custom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = custom.swift; sourceTree = "<group>"; };
 		B2E7BFFF20A65ED200A11EC1 /* DetailFoodView.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = DetailFoodView.storyboard; sourceTree = "<group>"; };
 		B2E7C00220A6AB7B00A11EC1 /* food_list_Detail.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = food_list_Detail.plist; sourceTree = SOURCE_ROOT; };
 		B2FA3D3C20B0231C00136603 /* Contacts_image.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Contacts_image.jpg; sourceTree = "<group>"; };
+		C6CFB9E5D665AC23AD6823EF /* Pods-World Food And History.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-World Food And History.release.xcconfig"; path = "Pods/Target Support Files/Pods-World Food And History/Pods-World Food And History.release.xcconfig"; sourceTree = "<group>"; };
+		C6E152E7B80357180CDD4F81 /* Pods_World_Food_And_HistoryUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_World_Food_And_HistoryUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D1159DF51FE3537B00530826 /* customCellTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = customCellTableViewCell.swift; sourceTree = "<group>"; };
 		D1159DF71FE3537B00530826 /* DetailViewCell_G.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailViewCell_G.swift; sourceTree = "<group>"; };
 		D1159DF81FE3537B00530826 /* DetailViewCell_W.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailViewCell_W.swift; sourceTree = "<group>"; };
@@ -97,6 +111,7 @@
 		D117090F1FBE997500F4B3E4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		D1177A491FD6D775002EEEBE /* GetDicMap.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetDicMap.swift; sourceTree = "<group>"; };
 		D1177A4A1FD6D775002EEEBE /* GetKeyCore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetKeyCore.swift; sourceTree = "<group>"; };
+		D130702F9E867DF52174073E /* Pods-World Food And HistoryUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-World Food And HistoryUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-World Food And HistoryUITests/Pods-World Food And HistoryUITests.release.xcconfig"; sourceTree = "<group>"; };
 		D13C3BC11FE0C6A500A76A75 /* infoLink.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = infoLink.jpg; sourceTree = SOURCE_ROOT; };
 		D145DFBA1FD5BB5D0037EFE0 /* MapKeyStorageMKPA.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapKeyStorageMKPA.swift; sourceTree = "<group>"; };
 		D15A4EA91FE670EB00651282 /* HotelCustomCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HotelCustomCell.xib; sourceTree = "<group>"; };
@@ -122,6 +137,7 @@
 		D1D48CAD1FE64489008737FF /* AreaCustomCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AreaCustomCell.xib; sourceTree = "<group>"; };
 		D1D78CD11FE5938100E7E58A /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		D1FE761B1FC7C471000786C3 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
+		DBFD8D3D3CAB3D4F8E3812D9 /* Pods-World Food And HistoryTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-World Food And HistoryTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-World Food And HistoryTests/Pods-World Food And HistoryTests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -130,6 +146,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D1D78CD21FE5938100E7E58A /* MessageUI.framework in Frameworks */,
+				5984E80A54D5C4A2546A38BE /* Pods_World_Food_And_History.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -137,6 +154,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D1768350C62523C83356A325 /* Pods_World_Food_And_HistoryTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -144,18 +162,39 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4B0BE67DE79E4BB1FE436B9D /* Pods_World_Food_And_HistoryUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		B240207A211EE64C005A3EFC /* ExplainSaveMap */ = {
+			isa = PBXGroup;
+			children = (
+				B2402076211EE61D005A3EFC /* ExplainSaveMap.storyboard */,
+				B2402078211EE639005A3EFC /* ExplainSaveMapVC.swift */,
+			);
+			path = ExplainSaveMap;
+			sourceTree = "<group>";
+		};
+		B240207B211EE736005A3EFC /* DetailView */ = {
+			isa = PBXGroup;
+			children = (
+				B21D78A120C8C61F004571AF /* DetailFoodView.swift */,
+				B21D78A020C8C61E004571AF /* DetailFoodView.xib */,
+				B2E7BFFF20A65ED200A11EC1 /* DetailFoodView.storyboard */,
+			);
+			path = DetailView;
+			sourceTree = "<group>";
+		};
 		D1D23C1F1FBCB426009D3895 = {
 			isa = PBXGroup;
 			children = (
 				D1D23C2A1FBCB426009D3895 /* World Food And History */,
 				D1D23C291FBCB426009D3895 /* Products */,
 				D1D78CD01FE5938100E7E58A /* Frameworks */,
+				D6543916DA38BF48E9D52B34 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -180,10 +219,9 @@
 				D1D23C2F1FBCB426009D3895 /* SecondViewController.swift */,
 				D1D23C5B1FBCB867009D3895 /* ThirdViewController.swift */,
 				D1D23C5D1FBCB882009D3895 /* FourthViewController.swift */,
-				B21D78A120C8C61F004571AF /* DetailFoodView.swift */,
-				B21D78A020C8C61E004571AF /* DetailFoodView.xib */,
+				B240207B211EE736005A3EFC /* DetailView */,
+				B240207A211EE64C005A3EFC /* ExplainSaveMap */,
 				B2E7BFFD20A65A1C00A11EC1 /* custom.swift */,
-				B2E7BFFF20A65ED200A11EC1 /* DetailFoodView.storyboard */,
 				D117090E1FBE997500F4B3E4 /* Main.storyboard */,
 				D1FE761B1FC7C471000786C3 /* LaunchScreen.storyboard */,
 				D1D23C341FBCB426009D3895 /* Assets.xcassets */,
@@ -231,6 +269,9 @@
 			isa = PBXGroup;
 			children = (
 				D1D78CD11FE5938100E7E58A /* MessageUI.framework */,
+				7EF1D3182463630B64175BFE /* Pods_World_Food_And_History.framework */,
+				4D0E1B1A96B1C4FAD2C2249F /* Pods_World_Food_And_HistoryTests.framework */,
+				C6E152E7B80357180CDD4F81 /* Pods_World_Food_And_HistoryUITests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -247,6 +288,19 @@
 			path = MyClass;
 			sourceTree = "<group>";
 		};
+		D6543916DA38BF48E9D52B34 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				250A3A96AFCB4A7CE0B17431 /* Pods-World Food And History.debug.xcconfig */,
+				C6CFB9E5D665AC23AD6823EF /* Pods-World Food And History.release.xcconfig */,
+				897BA4EE9366901AB93A4C5C /* Pods-World Food And HistoryTests.debug.xcconfig */,
+				DBFD8D3D3CAB3D4F8E3812D9 /* Pods-World Food And HistoryTests.release.xcconfig */,
+				3C0A4B3930D686DD7F751D64 /* Pods-World Food And HistoryUITests.debug.xcconfig */,
+				D130702F9E867DF52174073E /* Pods-World Food And HistoryUITests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -254,10 +308,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = D1D23C521FBCB426009D3895 /* Build configuration list for PBXNativeTarget "World Food And History" */;
 			buildPhases = (
+				5A4666D2EB3A85DF508936BC /* [CP] Check Pods Manifest.lock */,
 				D1D23C241FBCB426009D3895 /* Sources */,
 				D1D23C251FBCB426009D3895 /* Frameworks */,
 				D1D23C261FBCB426009D3895 /* Resources */,
 				D18DF5CA1FC809730094C260 /* Embed Frameworks */,
+				F3949B618AC5D55C5E456C59 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -276,8 +332,6 @@
 				D1D23C3A1FBCB426009D3895 /* Sources */,
 				D1D23C3B1FBCB426009D3895 /* Frameworks */,
 				D1D23C3C1FBCB426009D3895 /* Resources */,
-				4168DC6A5DEBB9411C0D29D6 /* [CP] Embed Pods Frameworks */,
-				F016CFE212EBA20FC4CA1B48 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -297,8 +351,6 @@
 				D1D23C451FBCB426009D3895 /* Sources */,
 				D1D23C461FBCB426009D3895 /* Frameworks */,
 				D1D23C471FBCB426009D3895 /* Resources */,
-				A6182C0A565275F18FF24D5D /* [CP] Embed Pods Frameworks */,
-				55AC08E1957022A02515C677 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -374,6 +426,7 @@
 				D1D23C351FBCB426009D3895 /* Assets.xcassets in Resources */,
 				D1FE761C1FC7C471000786C3 /* LaunchScreen.storyboard in Resources */,
 				D11709101FBE997500F4B3E4 /* Main.storyboard in Resources */,
+				B2402077211EE61D005A3EFC /* ExplainSaveMap.storyboard in Resources */,
 				D1159E031FE3537B00530826 /* URLCell_W.xib in Resources */,
 				D1159E041FE3537B00530826 /* DetailViewCell_G.xib in Resources */,
 				B21D78A220C8C61F004571AF /* DetailFoodView.xib in Resources */,
@@ -397,34 +450,22 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		4168DC6A5DEBB9411C0D29D6 /* [CP] Embed Pods Frameworks */ = {
+		5A4666D2EB3A85DF508936BC /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
 			);
-			name = "[CP] Embed Pods Frameworks";
+			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-World Food And History-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-World Food And HistoryTests/Pods-World Food And HistoryTests-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		55AC08E1957022A02515C677 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-World Food And HistoryUITests/Pods-World Food And HistoryUITests-resources.sh\"\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 		827250B39D639F891D065029 /* [CP] Check Pods Manifest.lock */ = {
@@ -463,34 +504,22 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		A6182C0A565275F18FF24D5D /* [CP] Embed Pods Frameworks */ = {
+		F3949B618AC5D55C5E456C59 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-World Food And History/Pods-World Food And History-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/KJExpandableTableTree/KJExpandableTableTree.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/KJExpandableTableTree.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-World Food And HistoryUITests/Pods-World Food And HistoryUITests-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		F016CFE212EBA20FC4CA1B48 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-World Food And HistoryTests/Pods-World Food And HistoryTests-resources.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-World Food And History/Pods-World Food And History-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -516,6 +545,7 @@
 				D145DFBB1FD5BB5D0037EFE0 /* MapKeyStorageMKPA.swift in Sources */,
 				D1159DFD1FE3537B00530826 /* customCellTableViewCell.swift in Sources */,
 				D1D23C2C1FBCB426009D3895 /* AppDelegate.swift in Sources */,
+				B2402079211EE639005A3EFC /* ExplainSaveMapVC.swift in Sources */,
 				D1177A4C1FD6D775002EEEBE /* GetKeyCore.swift in Sources */,
 				D1D23C5C1FBCB867009D3895 /* ThirdViewController.swift in Sources */,
 				D16002E01FDF5E2F006A7514 /* Favorite+CoreDataClass.swift in Sources */,
@@ -675,6 +705,7 @@
 		};
 		D1D23C531FBCB426009D3895 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 250A3A96AFCB4A7CE0B17431 /* Pods-World Food And History.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -693,6 +724,7 @@
 		};
 		D1D23C541FBCB426009D3895 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C6CFB9E5D665AC23AD6823EF /* Pods-World Food And History.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -711,6 +743,7 @@
 		};
 		D1D23C561FBCB426009D3895 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 897BA4EE9366901AB93A4C5C /* Pods-World Food And HistoryTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -728,6 +761,7 @@
 		};
 		D1D23C571FBCB426009D3895 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = DBFD8D3D3CAB3D4F8E3812D9 /* Pods-World Food And HistoryTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -745,6 +779,7 @@
 		};
 		D1D23C591FBCB426009D3895 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3C0A4B3930D686DD7F751D64 /* Pods-World Food And HistoryUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -761,6 +796,7 @@
 		};
 		D1D23C5A1FBCB426009D3895 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D130702F9E867DF52174073E /* Pods-World Food And HistoryUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
